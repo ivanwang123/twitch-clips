@@ -73,13 +73,17 @@ function App() {
           // ref={iframeRef}
         ></iframe>
         <div
-          className="w-24 h-full bg-blue-200 hidden landscape:block"
+          className="w-24 h-full bg-blue-200 hidden landscape:flex landscape:flex-col"
           {...landscapeHandles}
         >
-          <button type="button" onClick={toggleStreamInfo}>
+          {swipeDir}
+          <button
+            type="button"
+            className="mt-auto mb-5"
+            onClick={toggleStreamInfo}
+          >
             Info
           </button>
-          {swipeDir}
         </div>
       </section>
       <section
