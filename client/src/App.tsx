@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
@@ -32,10 +32,10 @@ function App() {
 
   const toggleStreamInfo = () => {
     if (streamInfoRef.current)
-      if (streamInfoRef.current.style.display === "block") {
+      if (streamInfoRef.current.style.display === "flex") {
         streamInfoRef.current.style.display = "none";
       } else {
-        streamInfoRef.current.style.display = "block";
+        streamInfoRef.current.style.display = "flex";
       }
   };
   // const iframeRef = useRef<HTMLIFrameElement>();
@@ -49,9 +49,24 @@ function App() {
   //   }
   // }, [iframeRef.current]);
 
-  // useEffect(() => {
-  //   ref(document);
-  // }, []);
+  useEffect(() => {
+    window
+      .matchMedia("(orientation: portrait)")
+      .addEventListener("change", (m) => {
+        console.log(m);
+        if (m.matches) {
+          // portrait
+          if (streamInfoRef.current) {
+            streamInfoRef.current.style.display = "flex";
+          }
+        } else {
+          // landscape
+          if (streamInfoRef.current) {
+            streamInfoRef.current.style.display = "none";
+          }
+        }
+      });
+  }, []);
 
   // if (isLoading) return <h1>Loading...</h1>;
   // if (isError) return <h1>Error: {error}</h1>;
