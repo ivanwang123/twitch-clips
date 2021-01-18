@@ -91,14 +91,10 @@ function App() {
           className="w-24 h-full bg-blue-200 hidden landscape:flex landscape:flex-col"
           {...landscapeHandles}
         >
-          {swipeDir}
-          <button
-            type="button"
-            className="mt-auto mb-5"
-            onClick={toggleStreamInfo}
-          >
+          <button type="button" className="mt-5" onClick={toggleStreamInfo}>
             Info
           </button>
+          {swipeDir}
         </div>
       </section>
       <section
