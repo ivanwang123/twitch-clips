@@ -44,11 +44,11 @@ function App() {
       {/* return ( */}
       <div className="w-full h-full flex flex-col bg-red-100">
         <iframe
-          src={data.streams[0].clips[0].embed_url + "&parent=localhost"}
-          title={data.streams[0].clips[0].title}
+          src="https://clips.twitch.tv/embed?clip=SpineySteamyTubersPeanutButterJellyTime&parent=localhost"
+          title="ACE DA LOUD HJ"
           height="90%"
           width="100%"
-          key={data.streams[0].clips[0].id}
+          key="SpineySteamyTubersPeanutButterJellyTime"
           // ref={iframeRef}
         ></iframe>
         <div
