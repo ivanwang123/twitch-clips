@@ -63,7 +63,7 @@ function App() {
           131026 viewers
         </div>
         <span className="block text-gray-500 font-semibold">
-          Playing League of Legends
+          Playing <span className="text-gray-400">League of Legends</span>
         </span>
         <span className="block text-gray-200 font-semibold mt-1">
           CBLOL 2021: 1ª Etapa - Fase de Pontos - Md1 | Semana 1 - Rodada 2
