@@ -109,16 +109,24 @@ function App() {
       >
         <div className="flex w-full font-bold text-lg text-white mb-4">
           <button type="button" className="group flex">
-            <img className="w-8 h-8" src="res/chevron-left.svg" />
+            <img
+              className="w-8 h-8"
+              src="res/chevron-left.svg"
+              alt="prev clip"
+            />
             <span className="opacity-40 transition duration-300 group-hover:opacity-100">
-              back
+              prev
             </span>
           </button>
           <button type="button" className="group flex ml-auto">
             <span className="opacity-40 transition duration-300 group-hover:opacity-100">
               next
             </span>
-            <img className="w-8 h-8" src="res/chevron-right.svg" />
+            <img
+              className="w-8 h-8"
+              src="res/chevron-right.svg"
+              alt="next clip"
+            />
           </button>
         </div>
         <div className="flex items-center">
