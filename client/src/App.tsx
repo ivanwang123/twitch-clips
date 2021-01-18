@@ -1,19 +1,19 @@
 // import { useEffect, useRef } from "react";
-// import { useQuery } from "react-query";
+import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
-// async function fetchStreams() {
-//   const data = await fetch("http://localhost:5000/test/streams", {
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   return await data.json();
-// }
+async function fetchStreams() {
+  const data = await fetch("http://localhost:5000/test/streams", {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return await data.json();
+}
 
 function App() {
-  // const { data } = useQuery("streams", fetchStreams);
-  // console.log("STREAMS DATA", data);
+  const { data } = useQuery("streams", fetchStreams);
+  console.log("STREAMS DATA", data);
 
   const handles = useSwipeable({
     onSwiped: (e) => console.log("SWIPED", e),
@@ -55,7 +55,16 @@ function App() {
         className="w-full flex flex-col flex-grow p-3 bg-gray-900"
         {...handles}
       >
-        <h1 className="text-3xl text-gray-200 font-bold">RiotGamesBrazil</h1>
+        <div className="flex items-center">
+          <img
+            className="w-8 h-8 rounded-full"
+            src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
+            alt="profile pic"
+          />
+          <h1 className="text-3xl text-gray-200 font-bold ml-2">
+            RiotGamesBrazil
+          </h1>
+        </div>
         <div className="text-gray-500 font-semibold mt-4">
           <span className="text-gray-200 font-bold bg-red-600 px-1 mr-2 rounded">
             Live
