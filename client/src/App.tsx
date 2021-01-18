@@ -111,7 +111,7 @@ function App() {
         {...handles}
         ref={streamInfoRef}
       >
-        <div className="flex w-full h-max font-bold text-lg text-white mb-4">
+        <div className="flex w-full font-bold text-lg text-white">
           <button type="button" className="group flex">
             <img
               className="w-8 h-8"
@@ -133,7 +133,7 @@ function App() {
             />
           </button>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center mt-4">
           <img
             className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
             src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
