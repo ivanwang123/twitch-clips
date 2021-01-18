@@ -52,7 +52,7 @@ function App() {
         // ref={iframeRef}
       ></iframe>
       <section
-        className="w-full flex flex-col flex-grow p-3 bg-gray-900"
+        className="w-full flex flex-col flex-grow p-3 portrait:bg-gray-900 landscript:bg-gray-200"
         {...handles}
       >
         <div className="flex items-center">
