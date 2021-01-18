@@ -75,11 +75,12 @@ function App() {
       <section className="flex w-full h-2/4 landscape:h-full">
         {/* <div className="w-12 h-full bg-blue-200 hidden landscape:block"></div> */}
         <iframe
-          src="https://clips.twitch.tv/embed?clip=SpineySteamyTubersPeanutButterJellyTime&parent=localhost&parent=twitch-clips.vercel.app"
+          src="https://clips.twitch.tv/embed?clip=SpineySteamyTubersPeanutButterJellyTime&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true"
           title="ACE DA LOUD HJ"
           height="100%"
           width="100%"
           key="SpineySteamyTubersPeanutButterJellyTime"
+          className="select-none"
           // ref={iframeRef}
         ></iframe>
         <div
