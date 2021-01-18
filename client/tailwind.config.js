@@ -4,9 +4,12 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        portrait: { raw: "(orientation: portrait)" },
-        landscape: { raw: "(orientation: landscape)" },
+        portrait: { raw: "(max-width: 1024px) and (orientation: portrait)" },
+        landscape: { raw: "(max-width: 1024px) and (orientation: landscape)" },
       },
+    },
+    boxShadow: {
+      "3xl": "0 0px 60px -15px rgba(0, 0, 0, 0.3)",
     },
   },
   variants: {

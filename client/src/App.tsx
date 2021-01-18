@@ -67,12 +67,12 @@ function App() {
   // if (isError) return <h1>Error: {error}</h1>;
 
   return (
-    <div className="fixed w-full h-full bg-red-100">
+    <div className="fixed w-full h-full bg-gray-900 lg:flex lg:w-full lg:h-3/4 lg:px-5 lg:max-w-screen-xl">
       {/* {data.streams.map((stream: any) => { */}
       {/* // console.log(stream.clips[0].embed_url);  */}
       {/* return ( */}
       {/* <div className="w-full h-full flex flex-col bg-red-100"> */}
-      <section className="flex w-full h-2/4 landscape:h-full">
+      <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
         {/* <div className="w-12 h-full bg-blue-200 hidden landscape:block"></div> */}
         <iframe
           src="https://clips.twitch.tv/embed?clip=SpineySteamyTubersPeanutButterJellyTime&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true"
@@ -101,55 +101,50 @@ function App() {
         </div>
       </section>
       <section
-        className="w-full h-2/4 flex flex-col bg-gray-900 p-3 transition-top duration-300 landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24"
+        className="w-full h-2/4 flex flex-col bg-gray-900 p-3 transition-top duration-300 overflow-y-auto
+                   landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24
+                   lg:w-auto lg:h-full"
         {...handles}
         ref={streamInfoRef}
       >
         <div className="flex items-center">
           <img
-            className="w-8 h-8 rounded-full"
+            className="w-6 h-6 rounded-full"
             src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
             alt="profile pic"
           />
-          <h1 className="text-2xl text-gray-200 font-bold ml-2">
+          <h1 className="text-xl text-gray-200 font-bold ml-2 lg:text-2xl">
             RiotGamesBrazil
           </h1>
         </div>
-        <div className="text-gray-500 font-semibold mt-4">
-          <span className="text-gray-200 font-bold bg-red-600 px-1 mr-2 rounded">
-            Live
+        <span className="text-2xl text-gray-200 mt-3">ACE DA LOUD HJ</span>
+        <span className="text-gray-500 font-semibold">
+          Clipped 1 hour ago · 2 views
+        </span>
+        <div className="flex flex-col shadow-3xl bg-gray-900 py-4 my-auto">
+          <div className="text-gray-500 font-semibold">
+            <span className="text-gray-200 font-bold bg-red-600 px-1 mr-2 rounded">
+              Live
+            </span>
+            131,026 viewers
+          </div>
+          <span className="text-gray-200 font-bold my-1">
+            CBLOL 2021: 1ª Etapa - Fase de Pontos - Md1 | Semana 1 - Rodada 2
           </span>
-          131026 viewers
+          <span className="text-gray-500 font-semibold">
+            Playing <span className="text-gray-400">League of Legends</span>
+          </span>
+          <button
+            type="button"
+            className="self-center text-gray-200 font-bold bg-blue-600 px-3 py-2 mt-4 rounded"
+          >
+            Watch Live
+          </button>
         </div>
-        <span className="block text-gray-500 font-semibold">
-          Playing <span className="text-gray-400">League of Legends</span>
-        </span>
-        <span className="block text-gray-200 font-bold mb-3 mt-1">
-          CBLOL 2021: 1ª Etapa - Fase de Pontos - Md1 | Semana 1 - Rodada 2
-        </span>
-        <button
-          type="button"
-          className="self-center text-gray-200 font-bold bg-blue-600 px-3 py-2 my-auto rounded"
-        >
-          Watch Now
-        </button>
       </section>
       {/* </div> */}
       {/* ); */}
       {/* })} */}
-      {/* <iframe
-        src="https://clips.twitch.tv/embed?clip=UgliestFrigidMelonAliens&parent=localhost"
-        scrolling="no"
-        height="378"
-        width="620"
-      ></iframe>
-      <iframe
-        src="https://clips.twitch.tv/embed?clip=UgliestFrigidMelonAliens&parent=localhost"
-        allowFullScreen
-        scrolling="no"
-        height="327"
-        width="620"
-      ></iframe> */}
     </div>
   );
 }

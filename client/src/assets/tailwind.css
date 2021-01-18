@@ -10,4 +10,8 @@ body,
   height: 100%;
   overscroll-behavior-y: none;
   overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @apply bg-gray-900;
 }
