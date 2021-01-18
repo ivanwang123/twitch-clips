@@ -25,7 +25,7 @@ function App() {
       setTimeout(function () {
         // Hide the address bar!
         window.scrollTo(0, 1);
-      }, 0);
+      }, 10);
       setSwipeDir(e.dir);
     },
     onTap: () => setSwipeDir("tapped"),
