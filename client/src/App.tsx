@@ -22,10 +22,10 @@ function App() {
 
   const landscapeHandles = useSwipeable({
     onSwiped: (e) => {
-      setTimeout(function () {
-        // Hide the address bar!
-        window.scrollTo(0, 100);
-      }, 10);
+      // setTimeout(function () {
+      //   // Hide the address bar!
+      //   window.scrollTo(0, 100);
+      // }, 10);
       document.body.requestFullscreen();
       setSwipeDir(e.dir);
     },
