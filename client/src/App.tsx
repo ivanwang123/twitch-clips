@@ -1,19 +1,19 @@
 // import { useEffect, useRef } from "react";
-import { useQuery } from "react-query";
+// import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
-async function fetchStreams() {
-  const data = await fetch("http://localhost:5000/test/streams", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  return await data.json();
-}
+// async function fetchStreams() {
+//   const data = await fetch("http://localhost:5000/test/streams", {
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   return await data.json();
+// }
 
 function App() {
-  const { isLoading, isError, data, error } = useQuery("streams", fetchStreams);
-  console.log("STREAMS DATA", data);
+  // const { isLoading, isError, data, error } = useQuery("streams", fetchStreams);
+  // console.log("STREAMS DATA", data);
 
   const handles = useSwipeable({
     onSwiped: (e) => console.log("SWIPED", e),
@@ -34,8 +34,8 @@ function App() {
   //   ref(document);
   // }, []);
 
-  if (isLoading) return <h1>Loading...</h1>;
-  if (isError) return <h1>Error: {error}</h1>;
+  // if (isLoading) return <h1>Loading...</h1>;
+  // if (isError) return <h1>Error: {error}</h1>;
 
   return (
     <div className="App w-full h-full bg-red-100">
