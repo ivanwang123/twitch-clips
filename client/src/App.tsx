@@ -107,6 +107,14 @@ function App() {
         {...handles}
         ref={streamInfoRef}
       >
+        <div className="flex w-full font-bold text-lg text-white mb-2">
+          <button type="button" className="">
+            &lt;-
+          </button>
+          <button type="button" className="ml-auto">
+            -&gt;
+          </button>
+        </div>
         <div className="flex items-center">
           <img
             className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
