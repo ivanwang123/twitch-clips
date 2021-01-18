@@ -109,7 +109,7 @@ function App() {
       >
         <div className="flex items-center">
           <img
-            className="w-6 h-6 rounded-full"
+            className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
             src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
             alt="profile pic"
           />
