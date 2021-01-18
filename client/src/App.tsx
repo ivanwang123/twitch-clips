@@ -96,7 +96,11 @@ function App() {
           </button>
           {swipeDir}
           <button type="button" className="mt-auto mb-10">
-            --&gt;
+            <img
+              className="w-8 h-8"
+              src="res/chevron-right.svg"
+              alt="next clip"
+            />
           </button>
         </div>
       </section>
@@ -107,7 +111,7 @@ function App() {
         {...handles}
         ref={streamInfoRef}
       >
-        <div className="flex w-full font-bold text-lg text-white mb-4">
+        <div className="flex w-full h-max font-bold text-lg text-white mb-4">
           <button type="button" className="group flex">
             <img
               className="w-8 h-8"
