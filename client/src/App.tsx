@@ -46,7 +46,7 @@ function App() {
         <iframe
           src="https://clips.twitch.tv/embed?clip=SpineySteamyTubersPeanutButterJellyTime&parent=localhost&parent=twitch-clips.vercel.app"
           title="ACE DA LOUD HJ"
-          height="90%"
+          height="50%"
           width="100%"
           key="SpineySteamyTubersPeanutButterJellyTime"
           // ref={iframeRef}
