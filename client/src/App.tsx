@@ -38,7 +38,7 @@ function App() {
   // if (isError) return <h1>Error: {error}</h1>;
 
   return (
-    <div className="w-full h-full bg-red-100">
+    <div className="fixed w-full h-full bg-red-100">
       {/* {data.streams.map((stream: any) => { */}
       {/* // console.log(stream.clips[0].embed_url);  */}
       {/* return ( */}
