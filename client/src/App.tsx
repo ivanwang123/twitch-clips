@@ -84,14 +84,10 @@ function App() {
           // ref={iframeRef}
         ></iframe>
         <div
-          className="w-24 h-full bg-gray-900 text-gray-200 hidden landscape:flex landscape:flex-col"
+          className="w-24 h-full bg-gray-900 text-gray-200 hidden landscape:flex flex-col items-center"
           {...landscapeHandles}
         >
-          <button
-            type="button"
-            className="self-center mt-10"
-            onClick={toggleStreamInfo}
-          >
+          <button type="button" className="mt-10" onClick={toggleStreamInfo}>
             <img
               className="w-14 h-14 rounded-full"
               src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
@@ -99,6 +95,9 @@ function App() {
             />
           </button>
           {swipeDir}
+          <button type="button" className="mt-auto mb-10">
+            --&gt;
+          </button>
         </div>
       </section>
       <section
