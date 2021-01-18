@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+// import { useEffect, useRef } from "react";
 import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
@@ -19,16 +19,16 @@ function App() {
     onSwiped: (e) => console.log("SWIPED", e),
   });
 
-  const iframeRef = useRef<HTMLIFrameElement>();
+  // const iframeRef = useRef<HTMLIFrameElement>();
 
-  useEffect(() => {
-    if (iframeRef.current) {
-      iframeRef.current.onended = () => console.log("VIDEO ENDED");
-      iframeRef.current.onchange = () => console.log("ON CHANGE");
-      // iframeRef.current.on("ended", () => console.log("ON ENDED"));
-      iframeRef.current.addEventListener("ended", () => console.log("ENDED"));
-    }
-  }, [iframeRef.current]);
+  // useEffect(() => {
+  //   if (iframeRef.current) {
+  //     iframeRef.current.onended = () => console.log("VIDEO ENDED");
+  //     iframeRef.current.onchange = () => console.log("ON CHANGE");
+  //     // iframeRef.current.on("ended", () => console.log("ON ENDED"));
+  //     iframeRef.current.addEventListener("ended", () => console.log("ENDED"));
+  //   }
+  // }, [iframeRef.current]);
 
   // useEffect(() => {
   //   ref(document);
