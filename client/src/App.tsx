@@ -54,7 +54,7 @@ function App() {
   // if (isError) return <h1>Error: {error}</h1>;
 
   return (
-    <div className="fixed w-full h-full bg-red-100">
+    <div className="fixed w-full h-full bg-red-100 overflow-y-auto">
       {/* {data.streams.map((stream: any) => { */}
       {/* // console.log(stream.clips[0].embed_url);  */}
       {/* return ( */}
@@ -77,7 +77,7 @@ function App() {
         </div>
       </section>
       <section
-        className="w-full h-2/4 flex flex-col bg-gray-900 p-3 landscape:w-auto landscape:h-auto landscape:absolute landscape:right-0 landscape:left-0 landscape:bottom-0 landscape:mr-24"
+        className="w-full h-full flex flex-col bg-gray-900 p-3 landscape:right-0 landscape:left-0 landscape:bottom-0 landscape:mr-24"
         {...handles}
         ref={streamInfoRef}
       >
