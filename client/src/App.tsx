@@ -55,7 +55,7 @@ function App() {
           className="w-full flex-grow z-10 bg-gray-500 pointer-events-auto"
           {...handles}
         >
-          Swipe Hello
+          Swipe
         </div>
       </div>
       {/* ); */}

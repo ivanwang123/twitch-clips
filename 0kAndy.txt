@@ -8,8 +8,6 @@ ISSUES
 -Pagination
 -Categories
 
-
-
 DESIGN
 -Scroll left/right to move through clips
 -Scroll up to view streamer info
