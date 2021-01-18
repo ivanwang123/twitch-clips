@@ -24,17 +24,20 @@ function App() {
     onSwiped: (e) => {
       setSwipeDir(e.dir);
       console.log(streamInfoRef.current);
-      if (streamInfoRef.current)
-        if (e.dir === "Up") {
-          streamInfoRef.current.style.display = "block";
-        } else if (e.dir === "Down") {
-          streamInfoRef.current.style.display = "none";
-        }
     },
     onTap: () => setSwipeDir("tapped"),
   });
 
   const streamInfoRef = useRef<HTMLElement>(null);
+
+  const toggleStreamInfo = () => {
+    if (streamInfoRef.current)
+      if (streamInfoRef.current.style.display === "block") {
+        streamInfoRef.current.style.display = "none";
+      } else {
+        streamInfoRef.current.style.display = "block";
+      }
+  };
   // const iframeRef = useRef<HTMLIFrameElement>();
 
   // useEffect(() => {
@@ -54,7 +57,7 @@ function App() {
   // if (isError) return <h1>Error: {error}</h1>;
 
   return (
-    <div className="portrait:fixed w-full h-full bg-red-100">
+    <div className="fixed w-full h-full bg-red-100">
       {/* {data.streams.map((stream: any) => { */}
       {/* // console.log(stream.clips[0].embed_url);  */}
       {/* return ( */}
@@ -73,11 +76,14 @@ function App() {
           className="w-24 h-full bg-blue-200 hidden landscape:block"
           {...landscapeHandles}
         >
+          <button type="button" onClick={toggleStreamInfo}>
+            Info
+          </button>
           {swipeDir}
         </div>
       </section>
       <section
-        className="w-full h-full flex flex-col bg-gray-900 p-3 landscape:right-0 landscape:left-0 landscape:bottom-0 landscape:mr-24"
+        className="w-full h-2/4 flex flex-col bg-gray-900 p-3 landscape:absolute landscape:top-0 landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:mr-24"
         {...handles}
         ref={streamInfoRef}
       >
