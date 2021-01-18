@@ -1,4 +1,4 @@
-// import { useEffect, useRef } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
@@ -14,9 +14,15 @@ async function fetchStreams() {
 function App() {
   const { data } = useQuery("streams", fetchStreams);
   console.log("STREAMS DATA", data);
+  const [swipeDir, setSwipeDir] = useState<string>("");
 
   const handles = useSwipeable({
     onSwiped: (e) => console.log("SWIPED", e),
+  });
+
+  const landscapeHandles = useSwipeable({
+    onSwiped: (e) => setSwipeDir(e.dir),
+    onTap: () => setSwipeDir("tapped"),
   });
 
   // const iframeRef = useRef<HTMLIFrameElement>();
@@ -53,7 +59,12 @@ function App() {
           key="SpineySteamyTubersPeanutButterJellyTime"
           // ref={iframeRef}
         ></iframe>
-        <div className="w-24 h-full bg-blue-200 hidden landscape:block"></div>
+        <div
+          className="w-24 h-full bg-blue-200 hidden landscape:block"
+          {...landscapeHandles}
+        >
+          {swipeDir}
+        </div>
       </section>
       <section
         className="w-full h-2/4 flex flex-col p-3 landscape:h-auto landscape:hidden"
