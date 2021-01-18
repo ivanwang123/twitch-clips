@@ -86,14 +86,22 @@ function App() {
           className="w-24 h-full bg-blue-200 hidden landscape:flex landscape:flex-col"
           {...landscapeHandles}
         >
-          <button type="button" className="mt-5" onClick={toggleStreamInfo}>
-            Info
+          <button
+            type="button"
+            className="self-center mt-10"
+            onClick={toggleStreamInfo}
+          >
+            <img
+              className="w-8 h-8 rounded-full"
+              src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
+              alt="profile pic"
+            />
           </button>
           {swipeDir}
         </div>
       </section>
       <section
-        className="w-full h-2/4 flex flex-col bg-gray-900 p-3 transition-top duration-200 landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:mr-24"
+        className="w-full h-2/4 flex flex-col bg-gray-900 p-3 transition-top duration-300 landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:mr-24"
         {...handles}
         ref={streamInfoRef}
       >
