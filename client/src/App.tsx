@@ -65,7 +65,7 @@ function App() {
           </span>
           131026 viewers
         </div>
-        <span className="block text-lg text-gray-200 font-semibold mt-1">
+        <span className="block text-gray-200 font-semibold mt-1">
           CBLOL 2021: 1ª Etapa - Fase de Pontos - Md1 | Semana 1 - Rodada 2
         </span>
         <button
