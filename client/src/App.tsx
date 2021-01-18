@@ -92,7 +92,7 @@ function App() {
             onClick={toggleStreamInfo}
           >
             <img
-              className="w-8 h-8 rounded-full"
+              className="w-14 h-14 rounded-full"
               src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
               alt="profile pic"
             />
