@@ -32,10 +32,10 @@ function App() {
 
   const toggleStreamInfo = () => {
     if (streamInfoRef.current)
-      if (streamInfoRef.current.style.display === "flex") {
-        streamInfoRef.current.style.display = "none";
+      if (streamInfoRef.current.style.top === "0px") {
+        streamInfoRef.current.style.top = "100%";
       } else {
-        streamInfoRef.current.style.display = "flex";
+        streamInfoRef.current.style.top = "0px";
       }
   };
   // const iframeRef = useRef<HTMLIFrameElement>();
@@ -50,22 +50,17 @@ function App() {
   // }, [iframeRef.current]);
 
   useEffect(() => {
-    window
-      .matchMedia("(orientation: portrait)")
-      .addEventListener("change", (m) => {
-        console.log(m);
-        if (m.matches) {
-          // portrait
-          if (streamInfoRef.current) {
-            streamInfoRef.current.style.display = "flex";
-          }
-        } else {
-          // landscape
-          if (streamInfoRef.current) {
-            streamInfoRef.current.style.display = "none";
-          }
-        }
-      });
+    // window
+    //   .matchMedia("(orientation: portrait)")
+    //   .addEventListener("change", (m) => {
+    //     console.log(m);
+    //     if (streamInfoRef.current)
+    //       if (m.matches) {
+    //         streamInfoRef.current.style.top = "0px";
+    //       } else {
+    //         streamInfoRef.current.style.top = "none";
+    //       }
+    //   });
   }, []);
 
   // if (isLoading) return <h1>Loading...</h1>;
@@ -98,7 +93,7 @@ function App() {
         </div>
       </section>
       <section
-        className="w-full h-2/4 flex flex-col bg-gray-900 p-3 landscape:absolute landscape:top-0 landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:mr-24"
+        className="w-full h-2/4 flex flex-col bg-gray-900 p-3 transition-top duration-200 landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:mr-24"
         {...handles}
         ref={streamInfoRef}
       >
