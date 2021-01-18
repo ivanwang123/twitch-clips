@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       screens: {
         portrait: { raw: "(orientation: portrait)" },
-        landscript: { raw: "(orientation: landscape)" },
+        landscape: { raw: "(orientation: landscape)" },
       },
     },
   },

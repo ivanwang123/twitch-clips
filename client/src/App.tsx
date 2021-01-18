@@ -38,21 +38,25 @@ function App() {
   // if (isError) return <h1>Error: {error}</h1>;
 
   return (
-    <div className="flex flex-col w-full h-full bg-red-100">
+    <div className="w-full h-full bg-red-100">
       {/* {data.streams.map((stream: any) => { */}
       {/* // console.log(stream.clips[0].embed_url);  */}
       {/* return ( */}
       {/* <div className="w-full h-full flex flex-col bg-red-100"> */}
-      <iframe
-        src="https://clips.twitch.tv/embed?clip=SpineySteamyTubersPeanutButterJellyTime&parent=localhost&parent=twitch-clips.vercel.app"
-        title="ACE DA LOUD HJ"
-        height="50%"
-        width="100%"
-        key="SpineySteamyTubersPeanutButterJellyTime"
-        // ref={iframeRef}
-      ></iframe>
+      <section className="flex w-full h-2/4 landscape:h-full">
+        <div className="w-12 h-full bg-blue-200 hidden landscape:block"></div>
+        <iframe
+          src="https://clips.twitch.tv/embed?clip=SpineySteamyTubersPeanutButterJellyTime&parent=localhost&parent=twitch-clips.vercel.app"
+          title="ACE DA LOUD HJ"
+          height="100%"
+          width="100%"
+          key="SpineySteamyTubersPeanutButterJellyTime"
+          // ref={iframeRef}
+        ></iframe>
+        <div className="w-12 h-full bg-blue-200 hidden landscape:block"></div>
+      </section>
       <section
-        className="w-full flex flex-col flex-grow p-3 portrait:bg-gray-900 landscript:bg-gray-200"
+        className="w-full h-2/4 flex flex-col p-3 landscape:h-auto portrait:bg-gray-900 landscape:bg-gray-100"
         {...handles}
       >
         <div className="flex items-center">
@@ -74,7 +78,7 @@ function App() {
         <span className="block text-gray-500 font-semibold">
           Playing <span className="text-gray-400">League of Legends</span>
         </span>
-        <span className="block text-gray-200 font-semibold mt-1">
+        <span className="block text-gray-200 font-semibold mb-3 mt-1">
           CBLOL 2021: 1ª Etapa - Fase de Pontos - Md1 | Semana 1 - Rodada 2
         </span>
         <button
