@@ -44,7 +44,7 @@ function App() {
       {/* return ( */}
       {/* <div className="w-full h-full flex flex-col bg-red-100"> */}
       <section className="flex w-full h-2/4 landscape:h-full">
-        <div className="w-12 h-full bg-blue-200 hidden landscape:block"></div>
+        {/* <div className="w-12 h-full bg-blue-200 hidden landscape:block"></div> */}
         <iframe
           src="https://clips.twitch.tv/embed?clip=SpineySteamyTubersPeanutButterJellyTime&parent=localhost&parent=twitch-clips.vercel.app"
           title="ACE DA LOUD HJ"
@@ -53,10 +53,10 @@ function App() {
           key="SpineySteamyTubersPeanutButterJellyTime"
           // ref={iframeRef}
         ></iframe>
-        <div className="w-12 h-full bg-blue-200 hidden landscape:block"></div>
+        <div className="w-24 h-full bg-blue-200 hidden landscape:block"></div>
       </section>
       <section
-        className="w-full h-2/4 flex flex-col p-3 landscape:h-auto portrait:bg-gray-900 landscape:bg-gray-100"
+        className="w-full h-2/4 flex flex-col p-3 landscape:h-auto landscape:hidden"
         {...handles}
       >
         <div className="flex items-center">
