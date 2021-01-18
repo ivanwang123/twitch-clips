@@ -115,7 +115,6 @@ function App() {
             RiotGamesBrazil
           </h1>
         </div>
-        Add clip timestamp
         <div className="text-gray-500 font-semibold mt-4">
           <span className="text-gray-200 font-bold bg-red-600 px-1 mr-2 rounded">
             Live
@@ -125,7 +124,7 @@ function App() {
         <span className="block text-gray-500 font-semibold">
           Playing <span className="text-gray-400">League of Legends</span>
         </span>
-        <span className="block text-gray-200 font-semibold mb-3 mt-1">
+        <span className="block text-gray-200 font-bold mb-3 mt-1">
           CBLOL 2021: 1ª Etapa - Fase de Pontos - Md1 | Semana 1 - Rodada 2
         </span>
         <button

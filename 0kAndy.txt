@@ -1,5 +1,8 @@
 Created 1/16/21
 
+ADDON
+-Clip timestamp
+
 ISSUES
 -Unable to detect when clip ends
 -Rate limit
