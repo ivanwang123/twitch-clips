@@ -44,7 +44,7 @@ function App() {
       {/* return ( */}
       <div className="w-full h-full flex flex-col bg-red-100">
         <iframe
-          src="https://clips.twitch.tv/embed?clip=SpineySteamyTubersPeanutButterJellyTime&parent=localhost"
+          src="https://clips.twitch.tv/embed?clip=SpineySteamyTubersPeanutButterJellyTime&parent=localhost&parent=twitch-clips.vercel.app"
           title="ACE DA LOUD HJ"
           height="90%"
           width="100%"
