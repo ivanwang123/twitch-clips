@@ -56,15 +56,15 @@ function App() {
         {...handles}
       >
         <h1 className="text-3xl text-gray-200 font-bold">RiotGamesBrazil</h1>
-        <span className="block text-gray-500 font-semibold">
-          Playing League of Legends
-        </span>
         <div className="text-gray-500 font-semibold mt-4">
           <span className="text-gray-200 font-bold bg-red-600 px-1 mr-2 rounded">
             Live
           </span>
           131026 viewers
         </div>
+        <span className="block text-gray-500 font-semibold">
+          Playing League of Legends
+        </span>
         <span className="block text-gray-200 font-semibold mt-1">
           CBLOL 2021: 1ª Etapa - Fase de Pontos - Md1 | Semana 1 - Rodada 2
         </span>
