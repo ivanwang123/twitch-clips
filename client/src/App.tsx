@@ -107,12 +107,18 @@ function App() {
         {...handles}
         ref={streamInfoRef}
       >
-        <div className="flex w-full font-bold text-lg text-white mb-2">
-          <button type="button" className="">
-            &lt;-
+        <div className="flex w-full font-bold text-lg text-white mb-4">
+          <button type="button" className="group flex">
+            <img className="w-8 h-8" src="res/chevron-left.svg" />
+            <span className="opacity-40 transition duration-300 group-hover:opacity-100">
+              back
+            </span>
           </button>
-          <button type="button" className="ml-auto">
-            -&gt;
+          <button type="button" className="group flex ml-auto">
+            <span className="opacity-40 transition duration-300 group-hover:opacity-100">
+              next
+            </span>
+            <img className="w-8 h-8" src="res/chevron-right.svg" />
           </button>
         </div>
         <div className="flex items-center">
