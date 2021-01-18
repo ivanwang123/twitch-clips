@@ -121,7 +121,7 @@ function App() {
         <span className="text-gray-500 font-semibold">
           Clipped 1 hour ago · 2 views
         </span>
-        <div className="flex flex-col shadow-3xl bg-gray-900 py-4 my-auto">
+        <div className="flex flex-col shadow-3xl bg-gray-900 py-4 my-auto landscape:px-2 lg:px-2">
           <div className="text-gray-500 font-semibold">
             <span className="text-gray-200 font-bold bg-red-600 px-1 mr-2 rounded">
               Live
@@ -136,7 +136,7 @@ function App() {
           </span>
           <button
             type="button"
-            className="self-center text-gray-200 font-bold bg-blue-600 px-3 py-2 mt-4 rounded"
+            className="self-center text-gray-200 font-bold bg-blue-600 px-3 py-2 mt-4 min-h-2 rounded"
           >
             Watch Live
           </button>
