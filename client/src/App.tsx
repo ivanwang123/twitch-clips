@@ -83,7 +83,7 @@ function App() {
           // ref={iframeRef}
         ></iframe>
         <div
-          className="w-24 h-full bg-blue-200 hidden landscape:flex landscape:flex-col"
+          className="w-24 h-full bg-gray-900 text-gray-200 hidden landscape:flex landscape:flex-col"
           {...landscapeHandles}
         >
           <button
@@ -111,10 +111,11 @@ function App() {
             src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
             alt="profile pic"
           />
-          <h1 className="text-3xl text-gray-200 font-bold ml-2">
+          <h1 className="text-2xl text-gray-200 font-bold ml-2">
             RiotGamesBrazil
           </h1>
         </div>
+        Add clip timestamp
         <div className="text-gray-500 font-semibold mt-4">
           <span className="text-gray-200 font-bold bg-red-600 px-1 mr-2 rounded">
             Live
