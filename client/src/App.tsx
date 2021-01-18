@@ -23,6 +23,7 @@ function App() {
   const landscapeHandles = useSwipeable({
     onSwiped: (e) => {
       setSwipeDir(e.dir);
+      console.log(streamInfoRef.current);
       if (streamInfoRef.current)
         if (e.dir === "Up") {
           streamInfoRef.current.style.display = "block";
@@ -33,7 +34,7 @@ function App() {
     onTap: () => setSwipeDir("tapped"),
   });
 
-  const streamInfoRef = useRef<HTMLElement>();
+  const streamInfoRef = useRef<HTMLElement>(null);
   // const iframeRef = useRef<HTMLIFrameElement>();
 
   // useEffect(() => {
@@ -76,9 +77,9 @@ function App() {
         </div>
       </section>
       <section
-        className="w-full h-2/4 flex flex-col p-3 landscape:h-auto landscape:hidden"
-        ref={streamInfoRef}
+        className="w-full h-2/4 flex flex-col bg-gray-900 p-3 landscape:w-auto landscape:h-auto landscape:absolute landscape:right-0 landscape:left-0 landscape:bottom-0 landscape:mr-24"
         {...handles}
+        ref={streamInfoRef}
       >
         <div className="flex items-center">
           <img
