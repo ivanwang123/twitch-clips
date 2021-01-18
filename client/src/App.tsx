@@ -101,7 +101,7 @@ function App() {
         </div>
       </section>
       <section
-        className="w-full h-2/4 flex flex-col bg-gray-900 px-3 pt-3 transition-top duration-300 overflow-y-auto
+        className="w-full h-2/4 flex flex-col bg-gray-900 p-3 transition-top duration-300 overflow-y-auto
                    landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24
                    lg:w-auto lg:h-full"
         {...handles}
