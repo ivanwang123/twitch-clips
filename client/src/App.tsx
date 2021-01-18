@@ -21,7 +21,10 @@ function App() {
   });
 
   const landscapeHandles = useSwipeable({
-    onSwiped: (e) => setSwipeDir(e.dir),
+    onSwiped: (e) => {
+      window.scrollTo(0, 1);
+      setSwipeDir(e.dir);
+    },
     onTap: () => setSwipeDir("tapped"),
   });
 
