@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
@@ -22,12 +22,18 @@ function App() {
 
   const landscapeHandles = useSwipeable({
     onSwiped: (e) => {
-      // document.body.requestFullscreen();
       setSwipeDir(e.dir);
+      if (streamInfoRef.current)
+        if (e.dir === "Up") {
+          streamInfoRef.current.style.display = "block";
+        } else if (e.dir === "Down") {
+          streamInfoRef.current.style.display = "none";
+        }
     },
     onTap: () => setSwipeDir("tapped"),
   });
 
+  const streamInfoRef = useRef<HTMLElement>();
   // const iframeRef = useRef<HTMLIFrameElement>();
 
   // useEffect(() => {
@@ -71,6 +77,7 @@ function App() {
       </section>
       <section
         className="w-full h-2/4 flex flex-col p-3 landscape:h-auto landscape:hidden"
+        ref={streamInfoRef}
         {...handles}
       >
         <div className="flex items-center">
