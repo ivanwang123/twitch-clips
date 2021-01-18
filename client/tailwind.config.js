@@ -12,7 +12,7 @@ module.exports = {
       "3xl": "0 0px 60px -15px rgba(0, 0, 0, 0.3)",
     },
     minHeight: {
-      2: "2rem",
+      2: "2.5rem",
     },
   },
   variants: {
