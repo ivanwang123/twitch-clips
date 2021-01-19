@@ -111,7 +111,7 @@ function App() {
         {...handles}
         ref={streamInfoRef}
       >
-        <div className="flex w-full font-bold text-lg text-white landscape:hidden">
+        <div className="flex w-full h-8 font-bold text-lg text-white mb-2 landscape:hidden">
           <button type="button" className="group flex">
             <img
               className="w-8 h-8"
@@ -133,7 +133,7 @@ function App() {
             />
           </button>
         </div>
-        <div className="flex items-center mt-4">
+        <div className="flex items-center">
           <img
             className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
             src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
@@ -147,25 +147,27 @@ function App() {
         <span className="text-gray-500 font-semibold">
           Clipped 1 hour ago · 2 views
         </span>
-        <div className="flex flex-col shadow-3xl bg-gray-900 py-4 my-auto landscape:px-2 lg:px-2">
-          <div className="text-gray-500 font-semibold">
-            <span className="text-gray-200 font-bold bg-red-600 px-1 mr-2 rounded">
-              Live
+        <div className="my-auto">
+          <div className="flex flex-col shadow-3xl bg-gray-900 py-4 my-3 landscape:px-2 lg:px-2">
+            <div className="text-gray-500 font-semibold">
+              <span className="text-gray-200 font-bold bg-red-600 px-1 mr-2 rounded">
+                Live
+              </span>
+              131,026 viewers
+            </div>
+            <span className="text-gray-200 font-bold my-1">
+              CBLOL 2021: 1ª Etapa - Fase de Pontos - Md1 | Semana 1 - Rodada 2
             </span>
-            131,026 viewers
+            <span className="text-gray-500 font-semibold">
+              Playing <span className="text-gray-400">League of Legends</span>
+            </span>
+            <button
+              type="button"
+              className="self-center text-gray-200 font-bold bg-blue-600 px-3 py-2 mt-4 min-h-2 rounded"
+            >
+              Watch Live
+            </button>
           </div>
-          <span className="text-gray-200 font-bold my-1">
-            CBLOL 2021: 1ª Etapa - Fase de Pontos - Md1 | Semana 1 - Rodada 2
-          </span>
-          <span className="text-gray-500 font-semibold">
-            Playing <span className="text-gray-400">League of Legends</span>
-          </span>
-          <button
-            type="button"
-            className="self-center text-gray-200 font-bold bg-blue-600 px-3 py-2 mt-4 min-h-2 rounded"
-          >
-            Watch Live
-          </button>
         </div>
       </section>
       {/* </div> */}
