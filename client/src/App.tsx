@@ -133,7 +133,7 @@ function App() {
             />
           </button>
         </div>
-        <div className="flex items-center mt-8">
+        <div className="flex items-center mt-24">
           <img
             className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
             src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
