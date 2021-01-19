@@ -34,10 +34,8 @@ function App() {
     if (streamInfoRef.current)
       if (streamInfoRef.current.style.top === "0px") {
         streamInfoRef.current.style.top = "100%";
-        streamInfoRef.current.focus();
       } else {
         streamInfoRef.current.style.top = "0px";
-        streamInfoRef.current.focus();
       }
   };
   // const iframeRef = useRef<HTMLIFrameElement>();
@@ -137,7 +135,7 @@ function App() {
               />
             </button>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center pointer-events-none">
             <img
               className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
               src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
@@ -147,8 +145,10 @@ function App() {
               RiotGamesBrazil
             </h1>
           </div>
-          <span className="text-2xl text-gray-200 mt-3">ACE DA LOUD HJ</span>
-          <span className="text-gray-500 font-semibold">
+          <span className="text-2xl text-gray-200 mt-3 pointer-events-none">
+            ACE DA LOUD HJ
+          </span>
+          <span className="text-gray-500 font-semibold pointer-events-none">
             Clipped 1 hour ago · 2 views
           </span>
           <div className="my-auto">
