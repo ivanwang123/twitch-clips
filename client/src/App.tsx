@@ -111,9 +111,9 @@ function App() {
           </button>
         </div>
       </section>
-      <section className="w-full h-2/4 overflow-y-scroll lg:h-full lg:overflow-y-auto">
+      <section className="w-full h-2/4 overflow-y-scroll lg:h-full lg:overflow-y-auto portrait:overflow-y-auto">
         <div
-          className="w-full h-auto flex flex-col bg-gray-900 p-3 transition-top duration-300 
+          className="flex flex-col w-full h-auto bg-gray-900 p-3 transition-top duration-300 
                     landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24
                     lg:w-auto lg:h-full"
           {...handles}
@@ -141,7 +141,7 @@ function App() {
               />
             </button>
           </div>
-          <div className="flex items-center pointer-events-none">
+          <div className="flex items-center">
             <img
               className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
               src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
@@ -151,10 +151,8 @@ function App() {
               RiotGamesBrazil
             </h1>
           </div>
-          <span className="text-2xl text-gray-200 mt-3 pointer-events-none">
-            ACE DA LOUD HJ
-          </span>
-          <span className="text-gray-500 font-semibold pointer-events-none">
+          <span className="text-2xl text-gray-200 mt-3">ACE DA LOUD HJ</span>
+          <span className="text-gray-500 font-semibold">
             Clipped 1 hour ago · 2 views
           </span>
           <div className="my-auto">
