@@ -95,11 +95,18 @@ function App() {
             />
           </button>
           {swipeDir}
-          <button type="button" className="mt-auto mb-10">
+          <button type="button" className="mt-auto mb-5">
             <img
               className="w-8 h-8"
               src="res/chevron-right.svg"
               alt="next clip"
+            />
+          </button>
+          <button type="button" className="mb-8">
+            <img
+              className="w-8 h-8"
+              src="res/chevron-left.svg"
+              alt="prev clip"
             />
           </button>
         </div>
