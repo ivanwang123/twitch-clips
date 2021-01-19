@@ -1,19 +1,19 @@
-import { useState, useRef } from "react";
-import { useQuery } from "react-query";
+import { useState, useRef, useEffect } from "react";
+// import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
-async function fetchStreams() {
-  const data = await fetch("http://localhost:5000/test/streams", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  return await data.json();
-}
+// async function fetchStreams() {
+//   const data = await fetch("http://localhost:5000/test/streams", {
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   return await data.json();
+// }
 
 function App() {
-  const { data } = useQuery("streams", fetchStreams);
-  console.log("STREAMS DATA", data);
+  // const { data } = useQuery("streams", fetchStreams);
+  // console.log("STREAMS DATA", data);
   const [swipeDir, setSwipeDir] = useState<string>("");
 
   const handles = useSwipeable({
@@ -49,19 +49,18 @@ function App() {
   //   }
   // }, [iframeRef.current]);
 
-  // useEffect(() => {
-  //   window
-  //     .matchMedia("(orientation: portrait)")
-  //     .addEventListener("change", (m) => {
-  //       console.log(m);
-  //       if (streamInfoRef.current)
-  //         if (m.matches) {
-  //           streamInfoRef.current.style.top = "0px";
-  //         } else {
-  //           streamInfoRef.current.style.top = "100%";
-  //         }
-  //     });
-  // }, []);
+  useEffect(() => {
+    console.log("match");
+    window.matchMedia("(orientation: portrait)").onchange = (m) => {
+      console.log(m);
+      if (streamInfoRef.current)
+        if (m.matches) {
+          streamInfoRef.current.style.top = "0px";
+        } else {
+          streamInfoRef.current.style.top = "100%";
+        }
+    };
+  }, []);
 
   // if (isLoading) return <h1>Loading...</h1>;
   // if (isError) return <h1>Error: {error}</h1>;
