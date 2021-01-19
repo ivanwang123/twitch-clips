@@ -95,7 +95,7 @@ function App() {
             />
           </button>
           {swipeDir}
-          <button type="button" className="mt-auto mb-5">
+          <button type="button" className="mt-auto mb-7">
             <img
               className="w-8 h-8"
               src="res/chevron-right.svg"
