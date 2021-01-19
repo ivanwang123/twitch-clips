@@ -114,16 +114,20 @@ function App() {
         <div className="flex w-full h-8 font-bold text-lg text-white mb-2 landscape:hidden">
           <button type="button" className="flex">
             <img
-              className="w-8 h-8"
+              className="block w-8 h-8"
               src="res/chevron-left.svg"
               alt="prev clip"
             />
-            <span className="opacity-40 transition duration-300">prev</span>
+            <span className="block opacity-40 transition duration-300">
+              prev
+            </span>
           </button>
           <button type="button" className="flex ml-auto">
-            <span className="opacity-40 transition duration-300">next</span>
+            <span className="block opacity-40 transition duration-300">
+              next
+            </span>
             <img
-              className="w-8 h-8"
+              className="block w-8 h-8"
               src="res/chevron-right.svg"
               alt="next clip"
             />
