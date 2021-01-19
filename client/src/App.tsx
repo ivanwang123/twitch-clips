@@ -111,16 +111,6 @@ function App() {
         {...handles}
         ref={streamInfoRef}
       >
-        <div className="flex items-center">
-          <img
-            className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
-            src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
-            alt="profile pic"
-          />
-          <h1 className="text-xl text-gray-200 font-bold ml-2 lg:text-2xl">
-            RiotGamesBrazil
-          </h1>
-        </div>
         {/* <div className="flex w-full font-bold text-lg text-white bg-blue-500 mb-2 landscape:hidden">
           <button type="button" className="flex">
             <img
@@ -139,6 +129,17 @@ function App() {
             />
           </button>
         </div> */}
+        <div className="bg-blue-500 w-full h-8">Hi</div>
+        <div className="flex items-center">
+          <img
+            className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
+            src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
+            alt="profile pic"
+          />
+          <h1 className="text-xl text-gray-200 font-bold ml-2 lg:text-2xl">
+            RiotGamesBrazil
+          </h1>
+        </div>
         <span className="text-2xl text-gray-200 mt-3">ACE DA LOUD HJ</span>
         <span className="text-gray-500 font-semibold">
           Clipped 1 hour ago · 2 views
