@@ -28,7 +28,7 @@ function App() {
     onTap: () => setSwipeDir("tapped"),
   });
 
-  const streamInfoRef = useRef<HTMLElement>(null);
+  const streamInfoRef = useRef<HTMLDivElement>(null);
 
   const toggleStreamInfo = () => {
     if (streamInfoRef.current)
@@ -104,33 +104,36 @@ function App() {
           </button>
         </div>
       </section>
-      <div className="w-full h-2/4 overflow-y-auto">
-        <section
+      <section className="w-full h-2/4 overflow-y-auto">
+        <div
           className="w-full h-auto flex flex-col bg-gray-900 p-3 transition-top duration-300 
                    landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24
                    lg:w-auto lg:h-full"
           {...handles}
           ref={streamInfoRef}
         >
-          {/* <div className="flex w-full font-bold text-lg text-white bg-blue-500 mb-2 landscape:hidden">
-          <button type="button" className="flex">
-            <img
-              className="w-8 h-8"
-              src="res/chevron-left.svg"
-              alt="prev clip"
-            />
-            <span className="opacity-40">prev</span>
-          </button>
-          <button type="button" className="flex ml-auto">
-            <span className="opacity-40">next</span>
-            <img
-              className="w-8 h-8"
-              src="res/chevron-right.svg"
-              alt="next clip"
-            />
-          </button>
-        </div> */}
-          <div className="bg-blue-500 w-full h-8">Hi</div>
+          <div className="flex w-full font-bold text-lg text-white mb-2 landscape:hidden">
+            <button type="button" className="group flex">
+              <img
+                className="w-8 h-8"
+                src="res/chevron-left.svg"
+                alt="prev clip"
+              />
+              <span className="opacity-40 transition duration-300 group-hover:opacity-100">
+                prev
+              </span>
+            </button>
+            <button type="button" className="group flex ml-auto">
+              <span className="opacity-40 transition duration-300 group-hover:opacity-100">
+                next
+              </span>
+              <img
+                className="w-8 h-8"
+                src="res/chevron-right.svg"
+                alt="next clip"
+              />
+            </button>
+          </div>
           <div className="flex items-center">
             <img
               className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
@@ -168,8 +171,8 @@ function App() {
               </button>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
       {/* </div> */}
       {/* ); */}
       {/* })} */}
