@@ -111,29 +111,7 @@ function App() {
         {...handles}
         ref={streamInfoRef}
       >
-        <div className="flex w-full h-8 font-bold text-lg text-white mb-2 landscape:hidden">
-          <button type="button" className="flex">
-            <img
-              className="block w-8 h-8"
-              src="res/chevron-left.svg"
-              alt="prev clip"
-            />
-            <span className="block opacity-40 transition duration-300">
-              prev
-            </span>
-          </button>
-          <button type="button" className="flex ml-auto">
-            <span className="block opacity-40 transition duration-300">
-              next
-            </span>
-            <img
-              className="block w-8 h-8"
-              src="res/chevron-right.svg"
-              alt="next clip"
-            />
-          </button>
-        </div>
-        <div className="flex items-center mt-24">
+        <div className="flex items-center">
           <img
             className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
             src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
@@ -142,6 +120,24 @@ function App() {
           <h1 className="text-xl text-gray-200 font-bold ml-2 lg:text-2xl">
             RiotGamesBrazil
           </h1>
+        </div>
+        <div className="flex w-full font-bold text-lg text-white mb-2 landscape:hidden">
+          <button type="button" className="flex">
+            <img
+              className="w-8 h-8"
+              src="res/chevron-left.svg"
+              alt="prev clip"
+            />
+            <span className="opacity-40 transition duration-300">prev</span>
+          </button>
+          <button type="button" className="flex ml-auto">
+            <span className="opacity-40 transition duration-300">next</span>
+            <img
+              className="w-8 h-8"
+              src="res/chevron-right.svg"
+              alt="next clip"
+            />
+          </button>
         </div>
         <span className="text-2xl text-gray-200 mt-3">ACE DA LOUD HJ</span>
         <span className="text-gray-500 font-semibold">
