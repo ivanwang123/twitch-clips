@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 // import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
@@ -49,18 +49,18 @@ function App() {
   //   }
   // }, [iframeRef.current]);
 
-  useEffect(() => {
-    console.log("match");
-    window.matchMedia("(orientation: portrait)").onchange = (m) => {
-      console.log(m);
-      if (streamInfoRef.current)
-        if (m.matches) {
-          streamInfoRef.current.style.top = "0px";
-        } else {
-          streamInfoRef.current.style.top = "100%";
-        }
-    };
-  }, []);
+  // useEffect(() => {
+  //   console.log("match");
+  //   window.matchMedia("(orientation: portrait)").onchange = (m) => {
+  //     console.log(m);
+  //     if (streamInfoRef.current)
+  //       if (m.matches) {
+  //         streamInfoRef.current.style.top = "0px";
+  //       } else {
+  //         streamInfoRef.current.style.top = "100%";
+  //       }
+  //   };
+  // }, []);
 
   // if (isLoading) return <h1>Loading...</h1>;
   // if (isError) return <h1>Error: {error}</h1>;
@@ -104,13 +104,15 @@ function App() {
           </button>
         </div>
       </section>
-      <section className="w-full h-2/4 overflow-y-scroll lg:h-full lg:overflow-y-auto">
+      <section
+        className="w-full h-2/4 overflow-y-scroll lg:h-full lg:overflow-y-auto transition-top duration-300 
+        landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24
+        lg:w-auto lg:h-full"
+        ref={streamInfoRef}
+      >
         <div
-          className="w-full h-auto flex flex-col bg-gray-900 p-3 transition-top duration-300 
-                   landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24
-                   lg:w-auto lg:h-full"
+          className="w-full h-auto flex flex-col bg-gray-900 p-3"
           {...handles}
-          ref={streamInfoRef}
         >
           <div className="flex w-full font-bold text-lg text-white mb-2 landscape:hidden">
             <button type="button" className="group flex">
