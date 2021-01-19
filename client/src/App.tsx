@@ -52,10 +52,12 @@ function App() {
   useEffect(() => {
     window.matchMedia("(orientation: portrait)").onchange = (m) => {
       console.log(m);
-      document.body.style.display = "none";
-      const h = document.body.offsetHeight; //cause a reflow
-      console.log(h);
-      document.body.style.display = "block";
+      if (streamInfoRef.current) {
+        streamInfoRef.current.style.display = "none";
+        const h = streamInfoRef.current.offsetHeight; //cause a reflow
+        console.log(h);
+        streamInfoRef.current.style.display = "flex";
+      }
       // if (streamInfoRef.current)
       //   if (m.matches) {
       //     streamInfoRef.current.style.top = "0px";
