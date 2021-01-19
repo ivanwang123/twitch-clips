@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
@@ -34,8 +34,10 @@ function App() {
     if (streamInfoRef.current)
       if (streamInfoRef.current.style.top === "0px") {
         streamInfoRef.current.style.top = "100%";
+        streamInfoRef.current.focus();
       } else {
         streamInfoRef.current.style.top = "0px";
+        streamInfoRef.current.focus();
       }
   };
   // const iframeRef = useRef<HTMLIFrameElement>();
