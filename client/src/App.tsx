@@ -104,15 +104,13 @@ function App() {
           </button>
         </div>
       </section>
-      <section
-        className="w-full h-2/4 overflow-y-scroll lg:h-full lg:overflow-y-auto transition-top duration-300 
-        landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24
-        lg:w-auto lg:h-full"
-        ref={streamInfoRef}
-      >
+      <section className="w-full h-2/4 overflow-y-scroll lg:h-full lg:overflow-y-auto">
         <div
-          className="w-full h-auto flex flex-col bg-gray-900 p-3"
+          className="w-full h-auto flex flex-col bg-gray-900 p-3 transition-top duration-300 
+                    landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24
+                    lg:w-auto lg:h-full"
           {...handles}
+          ref={streamInfoRef}
         >
           <div className="flex w-full font-bold text-lg text-white mb-2 landscape:hidden">
             <button type="button" className="group flex">
