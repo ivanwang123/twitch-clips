@@ -49,19 +49,19 @@ function App() {
   //   }
   // }, [iframeRef.current]);
 
-  useEffect(() => {
-    window
-      .matchMedia("(orientation: portrait)")
-      .addEventListener("change", (m) => {
-        console.log(m);
-        if (streamInfoRef.current)
-          if (m.matches) {
-            streamInfoRef.current.style.top = "0px";
-          } else {
-            streamInfoRef.current.style.top = "100%";
-          }
-      });
-  }, []);
+  // useEffect(() => {
+  //   window
+  //     .matchMedia("(orientation: portrait)")
+  //     .addEventListener("change", (m) => {
+  //       console.log(m);
+  //       if (streamInfoRef.current)
+  //         if (m.matches) {
+  //           streamInfoRef.current.style.top = "0px";
+  //         } else {
+  //           streamInfoRef.current.style.top = "100%";
+  //         }
+  //     });
+  // }, []);
 
   // if (isLoading) return <h1>Loading...</h1>;
   // if (isError) return <h1>Error: {error}</h1>;
