@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 // import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
@@ -49,23 +49,23 @@ function App() {
   //   }
   // }, [iframeRef.current]);
 
-  useEffect(() => {
-    window.matchMedia("(orientation: portrait)").onchange = (m) => {
-      console.log(m);
-      if (streamInfoRef.current) {
-        streamInfoRef.current.style.display = "none";
-        const h = streamInfoRef.current.offsetHeight; //cause a reflow
-        console.log(h);
-        streamInfoRef.current.style.display = "flex";
-      }
-      // if (streamInfoRef.current)
-      //   if (m.matches) {
-      //     streamInfoRef.current.style.top = "0px";
-      //   } else {
-      //     streamInfoRef.current.style.top = "100%";
-      //   }
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.matchMedia("(orientation: portrait)").onchange = (m) => {
+  //     console.log(m);
+  //     if (streamInfoRef.current) {
+  //       streamInfoRef.current.style.display = "none";
+  //       const h = streamInfoRef.current.offsetHeight; //cause a reflow
+  //       console.log(h);
+  //       streamInfoRef.current.style.display = "flex";
+  //     }
+  //     // if (streamInfoRef.current)
+  //     //   if (m.matches) {
+  //     //     streamInfoRef.current.style.top = "0px";
+  //     //   } else {
+  //     //     streamInfoRef.current.style.top = "100%";
+  //     //   }
+  //   };
+  // }, []);
 
   // if (isLoading) return <h1>Loading...</h1>;
   // if (isError) return <h1>Error: {error}</h1>;
