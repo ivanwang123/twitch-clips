@@ -121,7 +121,7 @@ function App() {
             RiotGamesBrazil
           </h1>
         </div>
-        <div className="flex w-full font-bold text-lg text-white bg-blue-500 mb-2 landscape:hidden">
+        {/* <div className="flex w-full font-bold text-lg text-white bg-blue-500 mb-2 landscape:hidden">
           <button type="button" className="flex">
             <img
               className="w-8 h-8"
@@ -138,7 +138,7 @@ function App() {
               alt="next clip"
             />
           </button>
-        </div>
+        </div> */}
         <span className="text-2xl text-gray-200 mt-3">ACE DA LOUD HJ</span>
         <span className="text-gray-500 font-semibold">
           Clipped 1 hour ago · 2 views
