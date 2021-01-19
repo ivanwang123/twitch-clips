@@ -104,7 +104,7 @@ function App() {
           </button>
         </div>
       </section>
-      <div className="w-full h-24 overflow-y-auto">
+      <div className="w-full h-2/4 overflow-y-auto">
         <section
           className="w-full h-auto flex flex-col bg-gray-900 p-3 transition-top duration-300 
                    landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24
