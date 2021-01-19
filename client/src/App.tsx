@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 // import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
 
@@ -49,18 +49,20 @@ function App() {
   //   }
   // }, [iframeRef.current]);
 
-  // useEffect(() => {
-  //   console.log("match");
-  //   window.matchMedia("(orientation: portrait)").onchange = (m) => {
-  //     console.log(m);
-  //     if (streamInfoRef.current)
-  //       if (m.matches) {
-  //         streamInfoRef.current.style.top = "0px";
-  //       } else {
-  //         streamInfoRef.current.style.top = "100%";
-  //       }
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.matchMedia("(orientation: portrait)").onchange = (m) => {
+      console.log(m);
+      document.body.style.display = "none";
+      document.body.offsetHeight; //cause a reflow
+      document.body.style.display = "block";
+      // if (streamInfoRef.current)
+      //   if (m.matches) {
+      //     streamInfoRef.current.style.top = "0px";
+      //   } else {
+      //     streamInfoRef.current.style.top = "100%";
+      //   }
+    };
+  }, []);
 
   // if (isLoading) return <h1>Loading...</h1>;
   // if (isError) return <h1>Error: {error}</h1>;
