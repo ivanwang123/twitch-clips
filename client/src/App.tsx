@@ -121,17 +121,17 @@ function App() {
             RiotGamesBrazil
           </h1>
         </div>
-        <div className="flex w-full font-bold text-lg text-white mb-2 landscape:hidden">
+        <div className="flex w-full font-bold text-lg text-white bg-blue-500 mb-2 landscape:hidden">
           <button type="button" className="flex">
             <img
               className="w-8 h-8"
               src="res/chevron-left.svg"
               alt="prev clip"
             />
-            <span className="opacity-40 transition duration-300">prev</span>
+            <span className="opacity-40">prev</span>
           </button>
           <button type="button" className="flex ml-auto">
-            <span className="opacity-40 transition duration-300">next</span>
+            <span className="opacity-40">next</span>
             <img
               className="w-8 h-8"
               src="res/chevron-right.svg"
