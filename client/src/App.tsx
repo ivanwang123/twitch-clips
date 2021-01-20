@@ -103,11 +103,12 @@ function App() {
       <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
         {/* <div className="w-12 h-full bg-blue-200 hidden landscape:block"></div> */}
         <iframe
-          src={`${curClip?.clip.embed_url}&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true&muted=false`}
+          src={`${curClip?.clip.embed_url}&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true`}
           title={curClip?.clip.title}
           height="100%"
           width="100%"
           key={curClip?.clip?.id}
+          allow="autoplay"
           // className="select-none"
           // ref={iframeRef}
         ></iframe>
