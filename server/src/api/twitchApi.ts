@@ -6,21 +6,32 @@ const header = {
   "Client-Id": "b67lppx3k1yiomjepykwqssxpx1c5w",
 };
 
-export const getStreams = async (cursor: string) => {
-  return await axios
-    .get(`https://api.twitch.tv/helix/streams?first=10&after=${cursor}`, {
+export const getStreams = async (cursor: string, first: number = 10) => {
+  return axios
+    .get(`https://api.twitch.tv/helix/streams?first=${first}&after=${cursor}`, {
       headers: header,
     })
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch();
 };
 
 export const getClips = async (broadcasterId: number, startedAt: string) => {
-  return await axios
+  return axios
     .get(
       `https://api.twitch.tv/helix/clips?broadcaster_id=${broadcasterId}&started_at=${startedAt}`,
       {
         headers: header,
       }
     )
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch();
+};
+
+export const getUser = async (id: number) => {
+  return axios
+    .get(`https://api.twitch.tv/helix/users?id=${id}`, {
+      headers: header,
+    })
+    .then((res) => res.data)
+    .catch();
 };

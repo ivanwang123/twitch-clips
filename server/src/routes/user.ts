@@ -2,7 +2,7 @@ import express from "express";
 // import axios from "axios";
 const router = express.Router();
 // import TwitchApi from "node-twitch";
-import { getClips, getStreams } from "../api/twitchApi";
+import { getClips, getStreams, getUser } from "../api/twitchApi";
 // import { APIStreamResponse } from "node-twitch/dist/types/responses";
 // import { APIClipsResponse } from "node-twitch/dist/types/responses";
 // const twitch = new TwitchApi({
@@ -15,22 +15,36 @@ import { getClips, getStreams } from "../api/twitchApi";
 router.get("/all", async (_, res) => {
   let latestDate = new Date(Date.now() - 1800000).toISOString(); // half an hour ago
   let cursor = "";
-  let clips = [];
+  let clipsData: any[] = [];
 
   do {
     console.log("cursor", cursor);
     try {
-      let streams = await getStreams(cursor);
+      let streams = await getStreams(cursor, 5);
       console.log("streams", streams);
 
       // const clipPromises: Promise<APIClipsResponse>[] = [];
-      streams.data.forEach(async (stream: any) => {
+      for (let i = 0; i < streams.data.length; i++) {
+        const stream = streams.data[i];
         // console.log(stream.viewer_count, stream.user_id);
         // if (stream.viewer_count < 500) {
         // clipPromises.push(
         const clip = await getClips(stream.user_id, latestDate);
+        const user = await getUser(stream.user_id);
         // console.log('clip', clip.data[0])
         if (clip.data[0]) console.log("CLIP", clip.data[0]);
+        if (user.data[0]) console.log("USER", user.data[0]);
+
+        const clipData = {
+          ...stream,
+          user: user.data[0],
+          clip: clip.data[0],
+        };
+
+        clipsData.push(clipData);
+
+        console.log("CLIPS DATA", clipsData);
+
         // clips.push(
         // await twitch.getClips({
         //   broadcaster_id: stream.user_id,
@@ -42,7 +56,7 @@ router.get("/all", async (_, res) => {
         // );
         // );
         // }
-      });
+      }
       // Promise.all(clipPromises).then((streamClips) => clips.push(...streamClips));
       // if (streams.data[0].viewer_count < 400) {
       //   console.log("END");
@@ -56,7 +70,8 @@ router.get("/all", async (_, res) => {
       console.log("Error", e);
     }
   } while (cursor);
-  res.send({ done: "done", clips: clips.length });
+
+  res.status(200).json({ done: "done", clips: clipsData });
 });
 
 export default router;
