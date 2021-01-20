@@ -35,15 +35,15 @@ router.get("/all", async (_, res) => {
         if (clip.data[0]) console.log("CLIP", clip.data[0]);
         if (user.data[0]) console.log("USER", user.data[0]);
 
-        const clipData = {
-          ...stream,
-          user: user.data[0],
-          clip: clip.data[0],
-        };
-
-        clipsData.push(clipData);
-
-        console.log("CLIPS DATA", clipsData);
+        if (user.data[0] && clip.data[0]) {
+          const clipData = {
+            ...stream,
+            user: user.data[0],
+            clip: clip.data[0],
+          };
+          clipsData.push(clipData);
+          console.log("CLIPS DATA", clipsData);
+        }
 
         // clips.push(
         // await twitch.getClips({

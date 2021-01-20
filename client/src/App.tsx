@@ -15,6 +15,7 @@ function App() {
   const { data } = useQuery("streams", fetchStreams);
   console.log("STREAMS DATA", data);
   const [swipeDir, setSwipeDir] = useState<string>("");
+  const [clipIndex, setClipIndex] = useState<number>(0);
   const [curClip, setCurClip] = useState<any>(null);
 
   const handles = useSwipeable({
@@ -46,6 +47,21 @@ function App() {
       setCurClip(data.streams[0]);
     }
   }, [data]);
+
+  useEffect(() => {
+    if (data && data.streams) {
+      let newClipIndex: number = clipIndex;
+      if (clipIndex < 0) newClipIndex = 0;
+      if (clipIndex >= data.streams.length)
+        newClipIndex = data.streams.length - 1;
+      console.log("CLIP INDEX", newClipIndex);
+      setCurClip(data.streams[newClipIndex]);
+      setClipIndex(newClipIndex);
+    }
+  }, [data, clipIndex]);
+
+  const nextClip = () => setClipIndex((prevIndex) => prevIndex + 1);
+  const prevClip = () => setClipIndex((prevIndex) => prevIndex - 1);
 
   // useEffect(() => {
   //   if (iframeRef.current) {
@@ -87,7 +103,7 @@ function App() {
       <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
         {/* <div className="w-12 h-full bg-blue-200 hidden landscape:block"></div> */}
         <iframe
-          src={`${curClip?.clip.embed_url}&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true`}
+          src={`${curClip?.clip.embed_url}&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true&muted=false`}
           title={curClip?.clip.title}
           height="100%"
           width="100%"
@@ -114,6 +130,7 @@ function App() {
           <button
             type="button"
             className="mt-auto mb-7 p-1 rounded focus:outline-none hover:bg-dark"
+            onClick={nextClip}
           >
             <img
               className="w-8 h-8"
@@ -124,6 +141,7 @@ function App() {
           <button
             type="button"
             className="mb-8 p-1 rounded focus:outline-none hover:bg-dark"
+            onClick={prevClip}
           >
             <img
               className="w-8 h-8"
@@ -135,18 +153,19 @@ function App() {
       </section>
       <section
         className="w-full h-2/4 bg-gray-900 overflow-y-auto transition-top duration-300 shadow-3xl
-        landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
-        lg:w-auto lg:h-full lg:max-w-md lg:overflow-y-auto"
+                  landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
+                  lg:w-100 lg:h-full lg:overflow-y-auto"
         ref={streamInfoRef}
       >
         <div
-          className="flex flex-col w-full h-full bg-gray-900 p-3"
+          className="flex flex-col w-full h-full bg-gray-900 p-3 lg:px-5"
           {...handles}
         >
           <div className="flex w-full text-lg text-white mb-3 landscape:hidden">
             <button
               type="button"
               className="group flex rounded focus:outline-none hover:bg-dark"
+              onClick={prevClip}
             >
               <img
                 className="w-8 h-8"
@@ -158,6 +177,7 @@ function App() {
             <button
               type="button"
               className="group flex ml-auto pl-2 rounded focus:outline-none hover:bg-dark"
+              onClick={nextClip}
             >
               <span className="opacity-40 font-bold transition duration-300 group-hover:opacity-90">
                 Next Clip

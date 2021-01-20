@@ -13,6 +13,9 @@ module.exports = {
       minHeight: {
         2: "2.5rem",
       },
+      width: {
+        100: "32rem",
+      },
       backgroundColor: (theme) => ({
         ...theme("colors"),
         dark: "#090D15",
