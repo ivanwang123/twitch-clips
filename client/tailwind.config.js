@@ -13,6 +13,10 @@ module.exports = {
       minHeight: {
         2: "2.5rem",
       },
+      backgroundColor: (theme) => ({
+        ...theme("colors"),
+        dark: "#090D15",
+      }),
     },
   },
   variants: {

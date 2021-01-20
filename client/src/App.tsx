@@ -94,7 +94,7 @@ function App() {
         >
           <button
             type="button"
-            className="w-12 h-12 border-2 border-gray-200 rounded-full mt-10 box-content"
+            className="w-12 h-12 border-2 border-gray-200 rounded-full mt-10 box-content focus:outline-none"
             onClick={toggleStreamInfo}
           >
             <img
@@ -104,14 +104,20 @@ function App() {
             />
           </button>
           {swipeDir}
-          <button type="button" className="mt-auto mb-7">
+          <button
+            type="button"
+            className="mt-auto mb-7 p-1 rounded focus:outline-none hover:bg-dark"
+          >
             <img
               className="w-8 h-8"
               src="res/chevron-right.svg"
               alt="next clip"
             />
           </button>
-          <button type="button" className="mb-8">
+          <button
+            type="button"
+            className="mb-8 p-1 rounded focus:outline-none hover:bg-dark"
+          >
             <img
               className="w-8 h-8"
               src="res/chevron-left.svg"
@@ -121,7 +127,7 @@ function App() {
         </div>
       </section>
       <section
-        className="w-full h-2/4 bg-gray-900 overflow-y-scroll transition-top duration-300 
+        className="w-full h-2/4 bg-gray-900 overflow-y-auto transition-top duration-300 shadow-3xl
         landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
         lg:w-auto lg:h-full lg:max-w-md lg:overflow-y-auto"
         ref={streamInfoRef}
@@ -130,20 +136,24 @@ function App() {
           className="flex flex-col w-full h-auto bg-gray-900 p-3"
           {...handles}
         >
-          <div className="flex w-full font-bold text-lg text-white mb-2 landscape:hidden">
-            <button type="button" className="group flex">
+          <div className="flex w-full text-lg text-white mb-2 landscape:hidden">
+            <button
+              type="button"
+              className="group flex rounded focus:outline-none hover:bg-dark"
+            >
               <img
                 className="w-8 h-8"
                 src="res/chevron-left.svg"
                 alt="prev clip"
               />
-              <span className="opacity-40 transition duration-300 group-hover:opacity-100">
-                prev
-              </span>
+              {/* <span className="opacity-40 font-bold transition duration-300 group-hover:opacity-100"></span> */}
             </button>
-            <button type="button" className="group flex ml-auto">
-              <span className="opacity-40 transition duration-300 group-hover:opacity-100">
-                next
+            <button
+              type="button"
+              className="group flex ml-auto pl-2 rounded focus:outline-none hover:bg-dark"
+            >
+              <span className="opacity-40 font-bold transition duration-300 group-hover:opacity-90">
+                Next Clip
               </span>
               <img
                 className="w-8 h-8"
