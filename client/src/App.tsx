@@ -28,7 +28,7 @@ function App() {
     onTap: () => setSwipeDir("tapped"),
   });
 
-  const streamInfoRef = useRef<HTMLDivElement>(null);
+  const streamInfoRef = useRef<HTMLElement>(null);
 
   const toggleStreamInfo = () => {
     if (streamInfoRef.current)
@@ -116,13 +116,15 @@ function App() {
           </button>
         </div>
       </section>
-      <section className="w-full h-2/4 overflow-y-scroll lg:h-full lg:overflow-y-auto portrait:overflow-y-auto">
+      <section
+        className="w-full h-2/4 bg-gray-900 overflow-y-scroll transition-top duration-300 
+        landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
+        lg:w-auto lg:h-full lg:max-w-md lg:overflow-y-auto"
+        ref={streamInfoRef}
+      >
         <div
-          className="flex flex-col w-full h-auto bg-gray-900 p-3 transition-top duration-300 
-                    landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-6 landscape:mr-24
-                    lg:w-auto lg:h-full"
+          className="flex flex-col w-full h-auto bg-gray-900 p-3"
           {...handles}
-          ref={streamInfoRef}
         >
           <div className="flex w-full font-bold text-lg text-white mb-2 landscape:hidden">
             <button type="button" className="group flex">
@@ -156,7 +158,11 @@ function App() {
               RiotGamesBrazil
             </h1>
           </div>
-          <span className="text-2xl text-gray-200 mt-3">ACE DA LOUD HJ</span>
+          <span className="text-2xl text-gray-200 mt-3">
+            ACE DA LOUD HJ ACE DA LOUD HJ ACE DA LOUD HJ ACE DA LOUD HJ ACE DA
+            LOUD HJ ACE DA LOUD HJ ACE DA LOUD HJ ACE DA LOUD HJ ACE DA LOUD HJ
+            ACE DA LOUD HJ
+          </span>
           <span className="text-gray-500 font-semibold">
             Clipped 1 hour ago · 2 views
           </span>
