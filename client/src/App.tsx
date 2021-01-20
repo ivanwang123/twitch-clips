@@ -96,12 +96,7 @@ function App() {
 
   return (
     <div className="fixed w-full h-full bg-gray-900 lg:flex lg:w-full lg:h-3/4 lg:px-5 lg:max-w-screen-xl">
-      {/* {data.streams.map((stream: any) => { */}
-      {/* // console.log(stream.clips[0].embed_url);  */}
-      {/* return ( */}
-      {/* <div className="w-full h-full flex flex-col bg-red-100"> */}
       <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
-        {/* <div className="w-12 h-full bg-blue-200 hidden landscape:block"></div> */}
         <iframe
           src={`${curClip?.clip.embed_url}&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true`}
           title={curClip?.clip.title}
@@ -248,9 +243,6 @@ function App() {
           </div>
         </div>
       </section>
-      {/* </div> */}
-      {/* ); */}
-      {/* })} */}
     </div>
   );
 }
