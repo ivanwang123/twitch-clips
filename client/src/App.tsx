@@ -92,9 +92,13 @@ function App() {
           className="w-24 h-full bg-gray-900 text-gray-200 hidden landscape:flex flex-col items-center"
           {...landscapeHandles}
         >
-          <button type="button" className="mt-10" onClick={toggleStreamInfo}>
+          <button
+            type="button"
+            className="w-12 h-12 border-2 border-gray-200 rounded-full mt-10 box-content"
+            onClick={toggleStreamInfo}
+          >
             <img
-              className="w-14 h-14 rounded-full"
+              className="rounded-full object-cover"
               src="https://static-cdn.jtvnw.net/previews-ttv/live_user_riotgamesbrazil-64x64.jpg"
               alt="profile pic"
             />
