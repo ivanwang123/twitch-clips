@@ -16,3 +16,7 @@ body,
   align-items: center;
   @apply bg-gray-900;
 }
+
+.icon-btn {
+  @apply rounded focus:outline-none hover:bg-gray-800;
+}

@@ -1,8 +1,29 @@
 import express from "express";
+import pool from "../pool";
 const router = express.Router();
 
 router.get("/streams", (_, res) => {
   res.status(200).json({ streams: streams });
+});
+
+router.get("/db-streams", (_, res) => {
+  pool.connect((poolErr, client, release) => {
+    if (poolErr) {
+      release();
+      res.status(500).json({ alert: { error: true, msg: poolErr.message } });
+    }
+
+    client.query("SELECT * FROM clips", (err, data) => {
+      release();
+      if (err) {
+        res.status(500).json({ alert: { error: true, msg: err.message } });
+      }
+      res.status(200).json({
+        clips: data.rows,
+        alert: { error: false, msg: "Successfully retrieved clips" },
+      });
+    });
+  });
 });
 
 export default router;

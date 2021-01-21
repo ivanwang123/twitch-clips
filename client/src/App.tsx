@@ -1,22 +1,25 @@
 import { useState, useRef, useEffect } from "react";
 import { useQuery } from "react-query";
 import { useSwipeable } from "react-swipeable";
+import { ClipType } from "./types/clipType";
+import { formatNumber } from "./utils/numberFormatter";
+import { formatTimestamp } from "./utils/timeFormatter";
 
 async function fetchStreams() {
-  const data = await fetch("http://localhost:5000/test/streams", {
+  const data = await fetch("http://localhost:5000/test/db-streams", {
     headers: {
       "Content-Type": "application/json",
     },
   });
+  console.log("STREAMS DATA", data);
   return await data.json();
 }
 
 function App() {
   const { data } = useQuery("streams", fetchStreams);
-  console.log("STREAMS DATA", data);
   const [swipeDir, setSwipeDir] = useState<string>("");
   const [clipIndex, setClipIndex] = useState<number>(0);
-  const [curClip, setCurClip] = useState<any>(null);
+  const [curClip, setCurClip] = useState<ClipType | null>(null);
 
   const handles = useSwipeable({
     onSwiped: (e) => console.log("SWIPED", e),
@@ -43,19 +46,18 @@ function App() {
   // const iframeRef = useRef<HTMLIFrameElement>();
 
   useEffect(() => {
-    if (data && data.streams) {
-      setCurClip(data.streams[0]);
+    if (data && data.clips) {
+      setCurClip(data.clips[0]);
     }
   }, [data]);
 
   useEffect(() => {
-    if (data && data.streams) {
+    if (data && data.clips) {
       let newClipIndex: number = clipIndex;
       if (clipIndex < 0) newClipIndex = 0;
-      if (clipIndex >= data.streams.length)
-        newClipIndex = data.streams.length - 1;
+      if (clipIndex >= data.clips.length) newClipIndex = data.clips.length - 1;
       console.log("CLIP INDEX", newClipIndex);
-      setCurClip(data.streams[newClipIndex]);
+      setCurClip(data.clips[newClipIndex]);
       setClipIndex(newClipIndex);
     }
   }, [data, clipIndex]);
@@ -98,11 +100,11 @@ function App() {
     <div className="fixed w-full h-full bg-gray-900 lg:flex lg:w-full lg:h-3/4 lg:px-5 lg:max-w-screen-xl">
       <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
         <iframe
-          src={`${curClip?.clip.embed_url}&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true`}
-          title={curClip?.clip.title}
+          src={`${curClip?.clip_embed_url}&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true`}
+          title={curClip?.clip_title}
           height="100%"
           width="100%"
-          key={curClip?.clip?.id}
+          key={curClip?.clip_id}
           allow="autoplay"
           // className="select-none"
           // ref={iframeRef}
@@ -118,14 +120,14 @@ function App() {
           >
             <img
               className="rounded-full"
-              src={curClip?.user.profile_image_url}
+              src={curClip?.profile_image_url}
               alt="profile pic"
             />
           </button>
           {swipeDir}
           <button
             type="button"
-            className="mt-auto mb-7 p-1 rounded focus:outline-none hover:bg-dark"
+            className="icon-btn mt-auto mb-7 p-1"
             onClick={nextClip}
           >
             <img
@@ -136,7 +138,7 @@ function App() {
           </button>
           <button
             type="button"
-            className="mb-8 p-1 rounded focus:outline-none hover:bg-dark"
+            className="icon-btn mb-8 p-1"
             onClick={prevClip}
           >
             <img
@@ -160,7 +162,7 @@ function App() {
           <div className="flex w-full text-lg text-white mb-3 landscape:hidden">
             <button
               type="button"
-              className="group flex rounded focus:outline-none hover:bg-dark"
+              className="icon-btn group flex"
               onClick={prevClip}
             >
               <img
@@ -168,14 +170,13 @@ function App() {
                 src="res/chevron-left.svg"
                 alt="prev clip"
               />
-              {/* <span className="opacity-40 font-bold transition duration-300 group-hover:opacity-100"></span> */}
             </button>
             <button
               type="button"
-              className="group flex ml-auto pl-2 rounded focus:outline-none hover:bg-dark"
+              className="icon-btn group flex ml-auto pl-2"
               onClick={nextClip}
             >
-              <span className="opacity-40 font-bold transition duration-300 group-hover:opacity-90">
+              <span className="opacity-40 font-semibold transition duration-300 group-hover:opacity-80">
                 Next Clip
               </span>
               <img
@@ -188,50 +189,60 @@ function App() {
           <div>
             <a
               className="flex items-center w-min"
-              href={`https://www.twitch.tv/${curClip?.user_name?.toLowerCase()}`}
+              href={`https://www.twitch.tv/${curClip?.login}`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
                 className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
-                src={curClip?.user.profile_image_url}
+                src={curClip?.profile_image_url}
                 alt="profile pic"
               />
-              <h1 className="text-xl text-gray-300 font-bold ml-2 hover:underline lg:text-2xl">
+              <h1 className="text-xl text-gray-300 font-semibold ml-2 hover:underline">
                 {curClip?.user_name}
               </h1>
             </a>
           </div>
-          <span className="text-2xl text-gray-300 mt-3">
-            {curClip?.clip.title}
+          <span className="text-3xl text-gray-300 mt-3">
+            {curClip?.clip_title}
           </span>
           <span className="text-gray-500 font-semibold">
-            Clipped 1 hour ago · {curClip?.clip.view_count} views
+            Clipped {formatTimestamp(curClip?.clip_created_at)} ·{" "}
+            {formatNumber(curClip?.clip_view_count)} view
+            {curClip?.clip_view_count === 1 ? "" : "s"}
           </span>
           <div className="my-auto">
             <div className="flex flex-col shadow-3xl bg-gray-900 py-4 my-3 landscape:px-2 lg:px-2">
-              {curClip?.type === "live" && (
+              {curClip?.stream_type === "live" && (
                 <div className="text-gray-500 font-semibold">
-                  <span className="text-gray-300 font-bold bg-red-600 px-1 mr-2 rounded">
-                    Live
+                  <span className="text-gray-300 font-semibold bg-red-600 px-2 mr-2 rounded">
+                    LIVE
                   </span>
-                  {curClip?.viewer_count} viewers
+                  {formatNumber(curClip?.stream_viewer_count)} viewer
+                  {curClip?.stream_viewer_count === 1 ? "" : "s"}
                 </div>
               )}
-              <span className="text-gray-300 font-bold my-1">
-                {curClip?.title}
+              <span className="text-gray-300 font-semibold my-1">
+                <a
+                  className="hover:underline"
+                  href={`https://www.twitch.tv/${curClip?.login}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {curClip?.stream_title}
+                </a>
               </span>
               <span className="text-gray-500 font-semibold">
                 Playing{" "}
                 <span className="text-gray-400">{curClip?.game_name}</span>
               </span>
-              {curClip?.type === "live" && (
+              {curClip?.stream_type === "live" && (
                 <button
                   type="button"
                   className="self-center text-gray-300 font-bold bg-blue-600 px-3 py-2 mt-4 min-h-2 rounded hover:bg-blue-700"
                 >
                   <a
-                    href={`https://www.twitch.tv/${curClip?.user_name?.toLowerCase()}`}
+                    href={`https://www.twitch.tv/${curClip?.login}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

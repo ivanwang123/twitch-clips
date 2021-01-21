@@ -1,7 +1,10 @@
 Created 1/16/21
 
-ADDON
--Clip timestamp
+TODO
+-Switch to pool
+-Language selector
+-No clips page
+-Pagination
 
 ISSUES
 -Unable to detect when clip ends

@@ -15,10 +15,14 @@ export const getStreams = async (cursor: string, first: number = 10) => {
     .catch();
 };
 
-export const getClips = async (broadcasterId: number, startedAt: string) => {
+export const getClips = async (
+  broadcasterId: number,
+  startedAt: string,
+  first: number = 10
+) => {
   return axios
     .get(
-      `https://api.twitch.tv/helix/clips?broadcaster_id=${broadcasterId}&started_at=${startedAt}`,
+      `https://api.twitch.tv/helix/clips?broadcaster_id=${broadcasterId}&started_at=${startedAt}&first=${first}`,
       {
         headers: header,
       }
