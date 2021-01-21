@@ -26,3 +26,10 @@ body,
   align-items: center;
   @apply rounded focus:outline-none hover:bg-gray-800;
 }
+
+.select-right-align {
+  text-align-last: right;
+}
+.select-right-align option {
+  direction: rtl;
+}

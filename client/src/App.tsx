@@ -99,14 +99,28 @@ function App() {
   return (
     <div className="fixed w-full h-full grid grid-rows-vert">
       <nav className="row-span-1 flex items-center text-gray-500 px-3 bg-gray-900">
-        <button type="button" className="icon-btn font-semibold px-2">
+        <label htmlFor="select-category">
           <img className="w-8 h-8" src="res/gamepad.svg" alt="category" />
-          <span className="ml-2">All</span>
-        </button>
-        <button type="button" className="icon-btn font-semibold px-2 ml-auto">
-          <span className="mr-2">Any</span>
+        </label>
+        <select
+          className="bg-gray-900 text-sm ml-2 focus:outline-none"
+          id="select-category"
+        >
+          <option defaultChecked>All</option>
+          <option>Just Chatting</option>
+          <option>LoL</option>
+        </select>
+        <select
+          className="select-right-align bg-gray-900 text-sm text-right mr-2 ml-auto focus:outline-none"
+          id="select-lang"
+        >
+          <option defaultChecked>Any</option>
+          <option>English</option>
+          <option>Spanish</option>
+        </select>
+        <label htmlFor="select-lang">
           <img className="w-8 h-8" src="res/globe.svg" alt="language" />
-        </button>
+        </label>
       </nav>
       <main className="row-span-1 w-full h-full lg:flex lg:w-full lg:h-3/4 lg:px-5 lg:max-w-screen-xl">
         <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
