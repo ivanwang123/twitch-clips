@@ -98,7 +98,16 @@ function App() {
 
   return (
     <div className="fixed w-full h-full grid grid-rows-vert">
-      <nav className="row-span-1 bg-red-100">Navbar</nav>
+      <nav className="row-span-1 flex items-center text-gray-500 px-3 bg-gray-900">
+        <button type="button" className="icon-btn font-semibold px-2">
+          <img className="w-8 h-8" src="res/gamepad.svg" alt="category" />
+          <span className="ml-2">All</span>
+        </button>
+        <button type="button" className="icon-btn font-semibold px-2 ml-auto">
+          <span className="mr-2">Any</span>
+          <img className="w-8 h-8" src="res/globe.svg" alt="language" />
+        </button>
+      </nav>
       <main className="row-span-1 w-full h-full lg:flex lg:w-full lg:h-3/4 lg:px-5 lg:max-w-screen-xl">
         <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
           <iframe
@@ -176,7 +185,7 @@ function App() {
               </button>
               <button
                 type="button"
-                className="icon-btn group flex ml-auto pl-2"
+                className="icon-btn group ml-auto pl-2"
                 onClick={nextClip}
               >
                 <span className="opacity-40 font-semibold transition duration-300 group-hover:opacity-80">
