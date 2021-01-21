@@ -14,8 +14,12 @@ body,
   display: flex;
   justify-content: center;
   align-items: center;
-  @apply bg-gray-900;
+  /* @apply bg-gray-900; */
+  /* @apply bg-gray-800; */
+  background: #161e32;
 }
+
+/* 131A2B, 161E32 */
 
 .icon-btn {
   @apply rounded focus:outline-none hover:bg-gray-800;

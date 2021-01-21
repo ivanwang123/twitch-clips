@@ -1,10 +1,12 @@
 Created 1/16/21
 
 TODO
--Switch to pool
 -Language selector
--No clips page
+-Category selector
+-Clip parsing algorithm
 -Pagination
+-Hotkeys
+-No clips page
 
 ISSUES
 -Unable to detect when clip ends

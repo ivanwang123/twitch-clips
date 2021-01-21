@@ -20,6 +20,9 @@ module.exports = {
         ...theme("colors"),
         dark: "#090D15",
       }),
+      gridTemplateRows: {
+        vert: "50px 1fr",
+      },
     },
   },
   variants: {
