@@ -118,11 +118,16 @@ function App() {
           <img className="w-6 h-6" src="res/close.svg" alt="close" />
         </button>
         <section className="w-full flex items-center">
-          <label htmlFor="select-category">
+          <label className="flex items-center" htmlFor="select-category">
             <img className="w-8 h-8" src="res/gamepad.svg" alt="category" />
+            <img
+              className="w-4 h-4 ml-2"
+              src="res/chevron-down.svg"
+              alt="open menu"
+            />
           </label>
           <select
-            className="bg-gray-900 text-sm ml-2 focus:outline-none"
+            className="bg-gray-900 text-sm pl-1 pr-2 focus:outline-none"
             id="select-category"
           >
             <option defaultChecked>All</option>
@@ -130,14 +135,19 @@ function App() {
             <option>LoL</option>
           </select>
           <select
-            className="select-right-align bg-gray-900 text-sm text-right mr-2 ml-auto focus:outline-none"
+            className="select-right-align bg-gray-900 text-sm text-right pr-1 pl-2 ml-auto focus:outline-none"
             id="select-lang"
           >
             <option defaultChecked>Any</option>
             <option>English</option>
             <option>Spanish</option>
           </select>
-          <label htmlFor="select-lang">
+          <label className="flex items-center" htmlFor="select-lang">
+            <img
+              className="w-4 h-4 mr-2"
+              src="res/chevron-down.svg"
+              alt="open menu"
+            />
             <img className="w-8 h-8" src="res/globe.svg" alt="language" />
           </label>
         </section>

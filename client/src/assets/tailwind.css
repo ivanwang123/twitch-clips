@@ -31,3 +31,9 @@ body,
 .select-right-align option {
   direction: rtl;
 }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
