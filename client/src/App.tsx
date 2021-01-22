@@ -164,7 +164,7 @@ function App() {
           </label>
         </section>
       </nav>
-      <main className="row-span-1 w-full h-full lg:flex lg:w-full lg:h-5/6 lg:px-5 lg:max-w-screen-lg">
+      <main className="row-span-1 w-full h-full lg:flex lg:h-5/6 lg:px-24 lg:max-w-screen-xl">
         <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
           <iframe
             src={`${curClip?.clip_embed_url}&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true`}
@@ -173,7 +173,7 @@ function App() {
             width="100%"
             key={curClip?.clip_id}
             allow="autoplay"
-            className="lg:rounded-l-lg"
+            className="lg:rounded-l"
             // className="select-none"
             // ref={iframeRef}
           ></iframe>
@@ -227,7 +227,7 @@ function App() {
         <section
           className="w-full h-2/4 bg-gray-900 overflow-y-auto transition-top duration-300
                     landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
-                    lg:w-100 lg:h-full lg:overflow-y-auto lg:rounded-r-lg"
+                    lg:w-100 lg:h-full lg:overflow-y-auto lg:rounded-r"
           ref={streamInfoRef}
         >
           <div className="flex flex-col w-full h-full bg-gray-900 p-3 lg:px-5">
