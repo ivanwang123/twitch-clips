@@ -35,6 +35,7 @@ function App() {
 
   const streamInfoRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLElement>(null);
+  // const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const toggleLandscapePage = (page: HTMLElement | null) => {
     if (page) {
@@ -102,8 +103,17 @@ function App() {
   // if (isError) return <h1>Error: {error}</h1>;
   //
 
+  // useEffect(() => {
+  //   const focusTimeout = setTimeout(() => {
+  //     console.log("FOCUS");
+  //     iframeRef.current?.click();
+  //   }, 4000);
+
+  //   return () => clearTimeout(focusTimeout);
+  // }, [curClip?.clip_embed_url]);
+
   return (
-    <div className="fixed w-full h-full grid grid-rows-vert place-items-center landscape:grid-rows-1">
+    <div className="fixed w-full h-full grid grid-rows-vert justify-items-center landscape:grid-rows-1">
       <nav
         className="row-span-1 w-full h-full flex text-gray-500 px-3 transition-top duration-300
                   landscape:absolute landscape:top-full landscape:left-0 landscape:right-0
@@ -134,7 +144,7 @@ function App() {
             />
           </label>
           <select
-            className="bg-transparent text-sm font-semibold pr-2 pl-14 -ml-14 cursor-pointer focus:outline-none
+            className="bg-transparent text-sm font-semibold pr-2 pl-14 -ml-13 cursor-pointer focus:outline-none
                       lg:border-r lg:border-gray-500"
             id="select-category"
           >
@@ -143,7 +153,7 @@ function App() {
             <option>LoL</option>
           </select>
           <select
-            className="select-right-align bg-transparent text-sm font-semibold pl-2 pr-14 -mr-14 ml-auto cursor-pointer focus:outline-none
+            className="select-right-align bg-transparent text-sm font-semibold pl-2 pr-14 -mr-13 ml-auto cursor-pointer focus:outline-none
                       lg:ml-0 lg:pl-8"
             id="select-lang"
           >
@@ -164,7 +174,7 @@ function App() {
           </label>
         </section>
       </nav>
-      <main className="row-span-1 w-full h-full lg:flex lg:h-5/6 lg:px-24 lg:max-w-screen-xl">
+      <main className="row-span-1 w-full h-full lg:flex lg:h-5/6 lg:px-24 lg:max-w-screen-xl lg:mt-5">
         <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
           <iframe
             src={`${curClip?.clip_embed_url}&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true`}

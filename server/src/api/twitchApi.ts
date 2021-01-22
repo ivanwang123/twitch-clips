@@ -18,7 +18,7 @@ export const getStreams = async (cursor: string, first: number = 10) => {
 export const getClips = async (
   broadcasterId: number,
   startedAt: string,
-  first: number = 10
+  first: number = 5
 ) => {
   return axios
     .get(

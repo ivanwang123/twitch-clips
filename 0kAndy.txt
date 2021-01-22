@@ -5,8 +5,8 @@ TODO
 -Category selector
 -Clip parsing algorithm
 -Pagination
--Hotkeys
 -No clips page
+-Hotkeys
 
 ISSUES
 -Unable to detect when clip ends

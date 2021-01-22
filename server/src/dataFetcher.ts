@@ -5,22 +5,25 @@ const LOOP_TIME = 300000;
 
 export const fetchData = async () => {
   let latestDate = new Date(Date.now() - LOOP_TIME).toISOString(); // 5 minutes ago
-  let cursor = "";
+  let cursor =
+    "eyJiIjp7IkN1cnNvciI6ImV5SnpJam8wTGpRM016STBOekF5TlRVd05EazVPU3dpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In0sImEiOnsiQ3Vyc29yIjoiZXlKeklqbzBMalExTWpZMk1qRXlOamM1TlRFNU5Dd2laQ0k2Wm1Gc2MyVXNJblFpT25SeWRXVjkifX0";
 
-  do {
-    console.log("cursor", cursor);
-    try {
-      let streams = await getStreams(cursor, 5);
-      // console.log("streams", streams);
+  // do {
+  console.log("cursor", cursor);
+  try {
+    let streams = await getStreams(cursor, 100);
+    // console.log("streams", streams);
 
-      for (let i = 0; i < streams.data.length; i++) {
-        const stream = streams.data[i];
-        const clip = await getClips(stream.user_id, latestDate);
+    for (let i = 0; i < streams.data.length; i++) {
+      const stream = streams.data[i];
+      const clip = await getClips(stream.user_id, latestDate);
+      const topClip = clip.data[0];
+      console.log("COUNT", i);
+
+      if (topClip) {
         const user = await getUser(stream.user_id);
-        const topClip = clip.data[0];
         const clipUser = user.data[0];
-
-        if (topClip && clipUser) {
+        if (clipUser) {
           const clipValues = [
             parseInt(stream.user_id),
             stream.user_name,
@@ -43,14 +46,15 @@ export const fetchData = async () => {
                               ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) ON CONFLICT DO NOTHING`;
           pool
             .query(insertText, [...clipValues])
-            .catch((err) => console.log("CLIENT QUERY ERROR", err));
-          console.log(clipValues);
+            .catch((err) => console.log("POOL QUERY ERROR", err));
+          console.log(clipValues[1]);
         }
       }
-    } catch (e) {
-      console.log("Error", e);
     }
-  } while (cursor);
+  } catch (e) {
+    console.log("Error", e);
+  }
+  // } while (cursor);
 };
 
 // setInterval(fetchData, LOOP_TIME); // every 5 minutes
