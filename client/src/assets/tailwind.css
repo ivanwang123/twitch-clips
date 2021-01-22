@@ -27,6 +27,9 @@ body,
 
 .select-right-align {
   text-align-last: right;
+  text-align: -webkit-right;
+  text-align: -moz-right;
+  text-align: right;
 }
 .select-right-align option {
   direction: rtl;

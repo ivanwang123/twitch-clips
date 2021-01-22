@@ -103,11 +103,12 @@ function App() {
   //
 
   return (
-    <div className="fixed w-full h-full grid grid-rows-vert landscape:grid-rows-1">
+    <div className="fixed w-full h-full grid grid-rows-vert place-items-center landscape:grid-rows-1">
       <nav
-        className="row-span-1 flex w-full text-gray-500 px-3 bg-gray-900 transition-top duration-300
+        className="row-span-1 w-full h-full flex text-gray-500 px-3 bg-gray-900 transition-top duration-300
                   landscape:absolute landscape:top-full landscape:left-0 landscape:right-0
-                  landscape:w-auto landscape:h-full landscape:block landscape:p-6 landscape:mr-20"
+                  landscape:w-auto landscape:h-full landscape:block landscape:p-6 landscape:mr-20
+                  lg:px-24"
         ref={navRef}
       >
         <button
@@ -118,7 +119,13 @@ function App() {
           <img className="w-6 h-6" src="res/close.svg" alt="close" />
         </button>
         <section className="w-full flex items-center">
-          <label className="flex items-center" htmlFor="select-category">
+          {/* <h1 className="hidden text-gray-300 text-xl font-bold lg:block">
+            0k Andy
+          </h1> */}
+          <label
+            className="flex items-center z-10 pointer-events-none lg:ml-auto"
+            htmlFor="select-category"
+          >
             <img className="w-8 h-8" src="res/gamepad.svg" alt="category" />
             <img
               className="w-4 h-4 ml-2"
@@ -127,7 +134,7 @@ function App() {
             />
           </label>
           <select
-            className="bg-gray-900 text-sm pl-1 pr-2 focus:outline-none"
+            className="bg-gray-900 text-sm font-semibold pr-2 pl-14 -ml-14 focus:outline-none"
             id="select-category"
           >
             <option defaultChecked>All</option>
@@ -135,14 +142,18 @@ function App() {
             <option>LoL</option>
           </select>
           <select
-            className="select-right-align bg-gray-900 text-sm text-right pr-1 pl-2 ml-auto focus:outline-none"
+            className="select-right-align bg-gray-900 text-sm font-semibold pl-2 pr-14 -mr-14 ml-auto focus:outline-none
+                      lg:ml-4"
             id="select-lang"
           >
             <option defaultChecked>Any</option>
             <option>English</option>
             <option>Spanish</option>
           </select>
-          <label className="flex items-center" htmlFor="select-lang">
+          <label
+            className="flex items-center z-10 pointer-events-none"
+            htmlFor="select-lang"
+          >
             <img
               className="w-4 h-4 mr-2"
               src="res/chevron-down.svg"
