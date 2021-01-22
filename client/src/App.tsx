@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useQuery } from "react-query";
-import { useSwipeable } from "react-swipeable";
+// import { useSwipeable } from "react-swipeable";
 import { ClipType } from "./types/clipType";
 import { formatNumber } from "./utils/numberFormatter";
 import { formatTimestamp } from "./utils/timeFormatter";
@@ -17,33 +17,39 @@ async function fetchStreams() {
 
 function App() {
   const { data } = useQuery("streams", fetchStreams);
-  const [swipeDir, setSwipeDir] = useState<string>("");
+  // const [swipeDir, setSwipeDir] = useState<string>("");
   const [clipIndex, setClipIndex] = useState<number>(0);
   const [curClip, setCurClip] = useState<ClipType | null>(null);
 
-  const handles = useSwipeable({
-    onSwiped: (e) => console.log("SWIPED", e),
-  });
+  // const handles = useSwipeable({
+  //   onSwiped: (e) => console.log("SWIPED", e),
+  // });
 
-  const landscapeHandles = useSwipeable({
-    onSwiped: (e) => {
-      setSwipeDir(e.dir);
-      console.log(streamInfoRef.current);
-    },
-    onTap: () => setSwipeDir("tapped"),
-  });
+  // const landscapeHandles = useSwipeable({
+  //   onSwiped: (e) => {
+  //     setSwipeDir(e.dir);
+  //     console.log(streamInfoRef.current);
+  //   },
+  //   onTap: () => setSwipeDir("tapped"),
+  // });
 
   const streamInfoRef = useRef<HTMLElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
-  const toggleStreamInfo = () => {
-    if (streamInfoRef.current)
-      if (streamInfoRef.current.style.top === "0px") {
-        streamInfoRef.current.style.top = "100%";
+  const toggleLandscapePage = (page: HTMLElement | null) => {
+    if (page) {
+      let top = page.style.top;
+      console.log(page, top);
+      if (streamInfoRef.current) streamInfoRef.current.style.top = "100%";
+      if (navRef.current) navRef.current.style.top = "100%";
+
+      if (top === "0px") {
+        page.style.top = "100%";
       } else {
-        streamInfoRef.current.style.top = "0px";
+        page.style.top = "0px";
       }
+    }
   };
-  // const iframeRef = useRef<HTMLIFrameElement>();
 
   useEffect(() => {
     if (data && data.clips) {
@@ -97,30 +103,44 @@ function App() {
   //
 
   return (
-    <div className="fixed w-full h-full grid grid-rows-vert">
-      <nav className="row-span-1 flex items-center text-gray-500 px-3 bg-gray-900">
-        <label htmlFor="select-category">
-          <img className="w-8 h-8" src="res/gamepad.svg" alt="category" />
-        </label>
-        <select
-          className="bg-gray-900 text-sm ml-2 focus:outline-none"
-          id="select-category"
+    <div className="fixed w-full h-full grid grid-rows-vert landscape:grid-rows-1">
+      <nav
+        className="row-span-1 flex w-full text-gray-500 px-3 bg-gray-900 transition-top duration-300
+                  landscape:absolute landscape:top-full landscape:left-0 landscape:right-0
+                  landscape:w-auto landscape:h-full landscape:block landscape:p-6 landscape:mr-20"
+        ref={navRef}
+      >
+        <button
+          type="button"
+          className="icon-btn hidden px-1 mb-5 ml-auto landscape:block"
+          onClick={() => toggleLandscapePage(navRef.current)}
         >
-          <option defaultChecked>All</option>
-          <option>Just Chatting</option>
-          <option>LoL</option>
-        </select>
-        <select
-          className="select-right-align bg-gray-900 text-sm text-right mr-2 ml-auto focus:outline-none"
-          id="select-lang"
-        >
-          <option defaultChecked>Any</option>
-          <option>English</option>
-          <option>Spanish</option>
-        </select>
-        <label htmlFor="select-lang">
-          <img className="w-8 h-8" src="res/globe.svg" alt="language" />
-        </label>
+          <img className="w-6 h-6" src="res/close.svg" alt="close" />
+        </button>
+        <section className="w-full flex items-center">
+          <label htmlFor="select-category">
+            <img className="w-8 h-8" src="res/gamepad.svg" alt="category" />
+          </label>
+          <select
+            className="bg-gray-900 text-sm ml-2 focus:outline-none"
+            id="select-category"
+          >
+            <option defaultChecked>All</option>
+            <option>Just Chatting</option>
+            <option>LoL</option>
+          </select>
+          <select
+            className="select-right-align bg-gray-900 text-sm text-right mr-2 ml-auto focus:outline-none"
+            id="select-lang"
+          >
+            <option defaultChecked>Any</option>
+            <option>English</option>
+            <option>Spanish</option>
+          </select>
+          <label htmlFor="select-lang">
+            <img className="w-8 h-8" src="res/globe.svg" alt="language" />
+          </label>
+        </section>
       </nav>
       <main className="row-span-1 w-full h-full lg:flex lg:w-full lg:h-3/4 lg:px-5 lg:max-w-screen-xl">
         <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
@@ -137,12 +157,12 @@ function App() {
           ></iframe>
           <div
             className="w-24 h-full bg-gray-900 text-gray-200 hidden landscape:flex flex-col items-center"
-            {...landscapeHandles}
+            // {...landscapeHandles}
           >
             <button
               type="button"
-              className="w-12 h-12 border-2 border-gray-200 rounded-full mt-10 box-content focus:outline-none"
-              onClick={toggleStreamInfo}
+              className="w-12 h-12 border-2 border-gray-200 rounded-full mt-8 box-content focus:outline-none"
+              onClick={() => toggleLandscapePage(streamInfoRef.current)}
             >
               <img
                 className="rounded-full"
@@ -150,10 +170,17 @@ function App() {
                 alt="profile pic"
               />
             </button>
-            {swipeDir}
             <button
               type="button"
-              className="icon-btn mt-auto mb-7 p-1"
+              className="icon-btn mt-4 p-1"
+              onClick={() => toggleLandscapePage(navRef.current)}
+            >
+              <img className="w-8 h-8" src="res/settings.svg" alt="settings" />
+            </button>
+            {/* {swipeDir} */}
+            <button
+              type="button"
+              className="icon-btn mt-auto mb-6 p-1"
               onClick={nextClip}
             >
               <img
@@ -164,7 +191,7 @@ function App() {
             </button>
             <button
               type="button"
-              className="icon-btn mb-8 p-1"
+              className="icon-btn mb-6 p-1"
               onClick={prevClip}
             >
               <img
@@ -177,14 +204,11 @@ function App() {
         </section>
         <section
           className="w-full h-2/4 bg-gray-900 overflow-y-auto transition-top duration-300
-                  landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
-                  lg:w-100 lg:h-full lg:overflow-y-auto lg:rounded-r-lg"
+                    landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
+                    lg:w-100 lg:h-full lg:overflow-y-auto lg:rounded-r-lg"
           ref={streamInfoRef}
         >
-          <div
-            className="flex flex-col w-full h-full bg-gray-900 p-3 lg:px-5"
-            {...handles}
-          >
+          <div className="flex flex-col w-full h-full bg-gray-900 p-3 lg:px-5">
             <div className="flex w-full text-lg text-white mb-3 landscape:hidden">
               <button
                 type="button"
@@ -199,7 +223,7 @@ function App() {
               </button>
               <button
                 type="button"
-                className="icon-btn group ml-auto pl-2"
+                className="icon-btn flex items-center group ml-auto pl-2"
                 onClick={nextClip}
               >
                 <span className="opacity-40 font-semibold transition duration-300 group-hover:opacity-80">
@@ -212,7 +236,7 @@ function App() {
                 />
               </button>
             </div>
-            <div>
+            <div className="flex">
               <a
                 className="flex items-center w-min"
                 href={`https://www.twitch.tv/${curClip?.login}`}
@@ -228,6 +252,13 @@ function App() {
                   {curClip?.user_name}
                 </h1>
               </a>
+              <button
+                type="button"
+                className="icon-btn hidden ml-auto px-1 landscape:block"
+                onClick={() => toggleLandscapePage(streamInfoRef.current)}
+              >
+                <img className="w-6 h-6" src="res/close.svg" alt="close" />
+              </button>
             </div>
             <span className="text-3xl text-gray-300 mt-3">
               {curClip?.clip_title}
