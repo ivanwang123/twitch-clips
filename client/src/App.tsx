@@ -164,7 +164,7 @@ function App() {
           </label>
         </section>
       </nav>
-      <main className="row-span-1 w-full h-full lg:flex lg:w-full lg:h-3/4 lg:px-5 lg:max-w-screen-xl">
+      <main className="row-span-1 w-full h-full lg:flex lg:w-full lg:h-5/6 lg:px-5 lg:max-w-screen-lg">
         <section className="flex w-full h-2/4 landscape:h-full lg:h-full">
           <iframe
             src={`${curClip?.clip_embed_url}&parent=localhost&parent=twitch-clips.vercel.app&autoplay=true`}
@@ -248,7 +248,7 @@ function App() {
                 className="icon-btn flex items-center group ml-auto pl-2"
                 onClick={nextClip}
               >
-                <span className="opacity-40 font-semibold transition duration-300 group-hover:opacity-80">
+                <span className="opacity-40 text-sm font-semibold transition duration-300 group-hover:opacity-80">
                   Next Clip
                 </span>
                 <img
@@ -266,11 +266,11 @@ function App() {
                 rel="noopener noreferrer"
               >
                 <img
-                  className="w-6 h-6 rounded-full lg:w-8 lg:h-8"
+                  className="w-6 h-6 rounded-full lg:w-7 lg:h-7"
                   src={curClip?.profile_image_url}
                   alt="profile pic"
                 />
-                <h1 className="text-xl text-gray-300 font-semibold ml-2 hover:underline">
+                <h1 className="text-lg text-gray-300 font-semibold ml-2 hover:underline">
                   {curClip?.user_name}
                 </h1>
               </a>
@@ -282,10 +282,10 @@ function App() {
                 <img className="w-6 h-6" src="res/close.svg" alt="close" />
               </button>
             </div>
-            <span className="text-3xl text-gray-300 mt-3">
+            <span className="text-2xl text-gray-300 mt-3">
               {curClip?.clip_title}
             </span>
-            <span className="text-gray-500 font-semibold">
+            <span className="text-gray-500 text-sm font-semibold mt-1">
               Clipped {formatTimestamp(curClip?.clip_created_at)} ·{" "}
               {formatNumber(curClip?.clip_view_count)} view
               {curClip?.clip_view_count === 1 ? "" : "s"}
@@ -293,8 +293,8 @@ function App() {
             <div className="my-auto">
               <div className="flex flex-col shadow-3xl bg-gray-900 py-4 my-3 landscape:px-2 lg:px-2">
                 {curClip?.stream_type === "live" && (
-                  <div className="text-gray-500 font-semibold">
-                    <span className="text-gray-300 font-semibold bg-red-600 px-2 mr-2 rounded">
+                  <div className="text-gray-500 text-sm font-semibold">
+                    <span className="text-gray-100 bg-red-600 px-2 mr-2 rounded">
                       LIVE
                     </span>
                     {formatNumber(curClip?.stream_viewer_count)} viewer
@@ -311,7 +311,7 @@ function App() {
                     {curClip?.stream_title}
                   </a>
                 </span>
-                <span className="text-gray-500 font-semibold">
+                <span className="text-gray-500 text-sm font-semibold">
                   Playing{" "}
                   <span className="text-gray-400">{curClip?.game_name}</span>
                 </span>
