@@ -134,7 +134,8 @@ function App() {
             />
           </label>
           <select
-            className="bg-gray-900 text-sm font-semibold pr-2 pl-14 -ml-14 focus:outline-none"
+            className="bg-gray-900 text-sm font-semibold pr-2 pl-14 -ml-14 cursor-pointer focus:outline-none
+                      lg:border-r lg:border-gray-500"
             id="select-category"
           >
             <option defaultChecked>All</option>
@@ -142,8 +143,8 @@ function App() {
             <option>LoL</option>
           </select>
           <select
-            className="select-right-align bg-gray-900 text-sm font-semibold pl-2 pr-14 -mr-14 ml-auto focus:outline-none
-                      lg:ml-4"
+            className="select-right-align bg-gray-900 text-sm font-semibold pl-2 pr-14 -mr-14 ml-auto cursor-pointer focus:outline-none
+                      lg:ml-0 lg:pl-8"
             id="select-lang"
           >
             <option defaultChecked>Any</option>
