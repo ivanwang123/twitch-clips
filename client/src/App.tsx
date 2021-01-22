@@ -105,7 +105,7 @@ function App() {
   return (
     <div className="fixed w-full h-full grid grid-rows-vert place-items-center landscape:grid-rows-1">
       <nav
-        className="row-span-1 w-full h-full flex text-gray-500 px-3 bg-gray-900 transition-top duration-300
+        className="row-span-1 w-full h-full flex text-gray-500 px-3 transition-top duration-300
                   landscape:absolute landscape:top-full landscape:left-0 landscape:right-0
                   landscape:w-auto landscape:h-full landscape:block landscape:p-6 landscape:mr-20
                   lg:px-24"
@@ -134,7 +134,7 @@ function App() {
             />
           </label>
           <select
-            className="bg-gray-900 text-sm font-semibold pr-2 pl-14 -ml-14 cursor-pointer focus:outline-none
+            className="bg-transparent text-sm font-semibold pr-2 pl-14 -ml-14 cursor-pointer focus:outline-none
                       lg:border-r lg:border-gray-500"
             id="select-category"
           >
@@ -143,7 +143,7 @@ function App() {
             <option>LoL</option>
           </select>
           <select
-            className="select-right-align bg-gray-900 text-sm font-semibold pl-2 pr-14 -mr-14 ml-auto cursor-pointer focus:outline-none
+            className="select-right-align bg-transparent text-sm font-semibold pl-2 pr-14 -mr-14 ml-auto cursor-pointer focus:outline-none
                       lg:ml-0 lg:pl-8"
             id="select-lang"
           >
