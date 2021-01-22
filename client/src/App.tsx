@@ -238,7 +238,7 @@ function App() {
                 onClick={prevClip}
               >
                 <img
-                  className="w-8 h-8"
+                  className="w-6 h-6"
                   src="res/chevron-left.svg"
                   alt="prev clip"
                 />
@@ -252,13 +252,13 @@ function App() {
                   Next Clip
                 </span>
                 <img
-                  className="w-8 h-8"
+                  className="w-6 h-6"
                   src="res/chevron-right.svg"
                   alt="next clip"
                 />
               </button>
             </div>
-            <div className="flex">
+            <div className="flex lg:mt-1">
               <a
                 className="flex items-center w-min"
                 href={`https://www.twitch.tv/${curClip?.login}`}
