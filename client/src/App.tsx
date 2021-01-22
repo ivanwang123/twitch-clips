@@ -126,7 +126,7 @@ function App() {
             className="flex items-center z-10 pointer-events-none lg:ml-auto"
             htmlFor="select-category"
           >
-            <img className="w-8 h-8" src="res/gamepad.svg" alt="category" />
+            <img className="w-6 h-6" src="res/gamepad.svg" alt="category" />
             <img
               className="w-4 h-4 ml-2"
               src="res/chevron-down.svg"
@@ -160,7 +160,7 @@ function App() {
               src="res/chevron-down.svg"
               alt="open menu"
             />
-            <img className="w-8 h-8" src="res/globe.svg" alt="language" />
+            <img className="w-6 h-6" src="res/globe.svg" alt="language" />
           </label>
         </section>
       </nav>
