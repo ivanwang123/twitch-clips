@@ -39,3 +39,12 @@ export const getUser = async (id: number) => {
     .then((res) => res.data)
     .catch();
 };
+
+export const getGames = async (first: number = 10) => {
+  return axios
+    .get(`https://api.twitch.tv/helix/games/top?first=${first}`, {
+      headers: header,
+    })
+    .then((res) => res.data)
+    .catch();
+};

@@ -16,9 +16,14 @@ module.exports = {
       width: {
         100: "32rem",
       },
+      maxWidth: {
+        10: "10rem",
+        8: "8rem",
+      },
       backgroundColor: (theme) => ({
         ...theme("colors"),
         dark: "#090D15",
+        light: "#161e32",
       }),
       gridTemplateRows: {
         vert: "50px 1fr",

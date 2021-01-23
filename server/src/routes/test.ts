@@ -1,4 +1,5 @@
 import express from "express";
+import { getGames } from "../api/twitchApi";
 import pool from "../pool";
 const router = express.Router();
 
@@ -24,6 +25,14 @@ router.get("/db-streams", (_, res) => {
       });
     });
   });
+});
+
+router.get("/games", async (_, res) => {
+  const games = await getGames(100);
+  games.data.forEach((game: any) => {
+    console.log(`\"${game.name}\": \"${game.id}\",`);
+  });
+  res.send({ done: "done" });
 });
 
 export default router;

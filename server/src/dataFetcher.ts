@@ -6,7 +6,7 @@ const LOOP_TIME = 300000;
 export const fetchData = async () => {
   let latestDate = new Date(Date.now() - LOOP_TIME).toISOString(); // 5 minutes ago
   let cursor =
-    "eyJiIjp7IkN1cnNvciI6ImV5SnpJam8wTGpRM016STBOekF5TlRVd05EazVPU3dpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In0sImEiOnsiQ3Vyc29yIjoiZXlKeklqbzBMalExTWpZMk1qRXlOamM1TlRFNU5Dd2laQ0k2Wm1Gc2MyVXNJblFpT25SeWRXVjkifX0";
+    "eyJiIjp7IkN1cnNvciI6ImV5SnpJam95TGprNU1qQTRPVFV6TnpJd016TXpNeXdpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In0sImEiOnsiQ3Vyc29yIjoiZXlKeklqb3lMams0TkRZMU1qUTJPVGt5TlRNNE5Td2laQ0k2Wm1Gc2MyVXNJblFpT25SeWRXVjkifX0";
 
   // do {
   console.log("cursor", cursor);
@@ -28,6 +28,7 @@ export const fetchData = async () => {
             parseInt(stream.user_id),
             stream.user_name,
             stream.game_name,
+            stream.game_id,
             stream.type,
             stream.title,
             stream.viewer_count,
@@ -41,9 +42,9 @@ export const fetchData = async () => {
             topClip.created_at,
           ];
 
-          const insertText = `INSERT INTO clips(user_id, user_name, game_name, stream_type, stream_title, stream_viewer_count, language,
+          const insertText = `INSERT INTO clips(user_id, user_name, game_name, game_id, stream_type, stream_title, stream_viewer_count, language,
                               login, profile_image_url, clip_id, clip_embed_url, clip_title, clip_view_count, clip_created_at) VALUES
-                              ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) ON CONFLICT DO NOTHING`;
+                              ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) ON CONFLICT DO NOTHING`;
           pool
             .query(insertText, [...clipValues])
             .catch((err) => console.log("POOL QUERY ERROR", err));

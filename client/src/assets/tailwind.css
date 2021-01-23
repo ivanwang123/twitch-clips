@@ -40,3 +40,7 @@ select {
   -moz-appearance: none;
   appearance: none;
 }
+
+option:checked {
+  font-weight: bold;
+}
