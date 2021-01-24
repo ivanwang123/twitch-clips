@@ -1,17 +1,29 @@
+import { Dispatch, SetStateAction } from "react";
 import languageIDs from "../utils/languageIDs";
 
-function LanguageSelection() {
+interface PropTypes {
+  language: string;
+  setLanguage: Dispatch<SetStateAction<string>>;
+}
+
+function LanguageSelection(props: PropTypes) {
+  const { language, setLanguage } = props;
+
   return (
     <>
       <select
         className="max-w-8 select-right-align bg-gray-900 text-sm font-semibold pl-2 pr-14 -mr-13 cursor-pointer focus:outline-none 
                   transition duration-300 hover:text-gray-300
-                  lg:pl-8 lg:bg-light lg:max-w-10 landscape:max-w-10"
+                  lg:bg-light lg:max-w-10 landscape:max-w-10"
         id="select-lang"
-        // onChange={(e) => setLanguage(e.target.value)}
+        onChange={(e) => setLanguage(e.target.value)}
       >
         {Object.entries(languageIDs).map(([lang, abbrev]) => {
-          return <option value={abbrev}>{lang}</option>;
+          return (
+            <option value={abbrev} selected={abbrev === language}>
+              {lang}
+            </option>
+          );
         })}
       </select>
       <label

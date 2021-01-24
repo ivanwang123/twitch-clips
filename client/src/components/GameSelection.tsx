@@ -1,6 +1,14 @@
+import { Dispatch, SetStateAction } from "react";
 import gameIDs from "../utils/gameIDs";
 
-function GameSelection() {
+interface PropTypes {
+  game: string;
+  setGame: Dispatch<SetStateAction<string>>;
+}
+
+function GameSelection(props: PropTypes) {
+  const { game, setGame } = props;
+
   return (
     <>
       <label
@@ -19,10 +27,14 @@ function GameSelection() {
                   transition duration-300 hover:text-gray-300
                   lg:bg-light lg:max-w-10 landscape:max-w-10"
         id="select-category"
-        // onChange={(e) => setCategory(e.target.value)}
+        onChange={(e) => setGame(e.target.value)}
       >
         {Object.entries(gameIDs).map(([title, id]) => {
-          return <option value={id}>{title}</option>;
+          return (
+            <option value={id} selected={id === game}>
+              {title}
+            </option>
+          );
         })}
       </select>
     </>

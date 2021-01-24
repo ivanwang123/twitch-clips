@@ -1,5 +1,5 @@
 export default {
-  All: "0",
+  "All Games": "0",
   "ARK: Survival Evolved": "489635",
   ASMR: "509659",
   "Age of Empires II": "13389",

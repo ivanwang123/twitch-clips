@@ -1,20 +1,46 @@
 import express from "express";
+const sql = require("sql-query-generator");
 import { getGames } from "../api/twitchApi";
 import pool from "../pool";
+
 const router = express.Router();
 
-router.get("/streams", (_, res) => {
-  res.status(200).json({ streams: streams });
-});
+router.get("/db-streams", (req, res) => {
+  console.log("REQ", req.query);
+  streams;
+  const { game, language, cursor } = req.query;
 
-router.get("/db-streams", (_, res) => {
   pool.connect((poolErr, client, release) => {
     if (poolErr) {
       release();
       res.status(500).json({ alert: { error: true, msg: poolErr.message } });
     }
 
-    client.query("SELECT * FROM clips", (err, data) => {
+    // Select clips
+    const query = sql.select("clips", "*");
+    let hasCursor = false;
+
+    // Paginate by created_at date
+    if (cursor?.length) {
+      query.where({ clip_created_at: cursor }, "<");
+      hasCursor = true;
+    }
+
+    // Add game and language filters
+    const queryParams: any = {};
+    if (language !== "any") queryParams["language"] = language;
+    if (game !== "0") queryParams["game_id"] = game;
+    if (Object.keys(queryParams).length > 0) {
+      if (hasCursor) query.and(queryParams);
+      else query.where(queryParams);
+    }
+
+    // Take 10 most recent
+    query.orderby("clip_created_at DESC").limit(10, 0);
+
+    console.log("QUERY", query.text, query.values);
+
+    client.query(query.text, query.values, (err, data) => {
       release();
       if (err) {
         res.status(500).json({ alert: { error: true, msg: err.message } });

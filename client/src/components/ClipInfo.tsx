@@ -7,6 +7,7 @@ interface PropTypes {
   curClip: ClipType | null;
   nextClip: () => void;
   prevClip: () => void;
+  clipIndex: number;
   toggleLandscapePage: (page: HTMLElement | null) => void;
   streamInfoRef: RefObject<HTMLElement>;
 }
@@ -16,6 +17,7 @@ function ClipInfo(props: PropTypes) {
     curClip,
     nextClip,
     prevClip,
+    clipIndex,
     toggleLandscapePage,
     streamInfoRef,
   } = props;
@@ -23,24 +25,26 @@ function ClipInfo(props: PropTypes) {
   return (
     <>
       <div className="flex flex-col w-full h-full bg-gray-900 p-3 lg:px-5">
-        <div className="flex w-full text-lg text-white mb-3 landscape:hidden">
-          <button
-            type="button"
-            className="icon-btn group flex"
-            onClick={prevClip}
-          >
-            <img
-              className="w-6 h-6"
-              src="res/chevron-left.svg"
-              alt="prev clip"
-            />
-          </button>
+        <div className="flex w-full text-lg mb-3 landscape:hidden">
+          {clipIndex !== 0 && (
+            <button
+              type="button"
+              className="icon-btn group flex"
+              onClick={prevClip}
+            >
+              <img
+                className="w-6 h-6"
+                src="res/chevron-left.svg"
+                alt="prev clip"
+              />
+            </button>
+          )}
           <button
             type="button"
             className="icon-btn flex items-center group ml-auto pl-2"
             onClick={nextClip}
           >
-            <span className="opacity-40 text-sm font-semibold transition duration-300 group-hover:opacity-80">
+            <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
               Next Clip
             </span>
             <img
@@ -58,9 +62,9 @@ function ClipInfo(props: PropTypes) {
             rel="noopener noreferrer"
           >
             <img
-              className="w-6 h-6 rounded-full lg:w-7 lg:h-7"
+              className="w-6 h-6 rounded-full text-gray-300 lg:w-7 lg:h-7"
               src={curClip?.profile_image_url}
-              alt="profile pic"
+              alt="profile"
             />
             <h1 className="text-lg text-gray-300 font-semibold ml-2 hover:underline">
               {curClip?.user_name}

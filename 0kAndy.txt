@@ -1,12 +1,12 @@
 Created 1/16/21
 
 TODO
--Language selector
--Category selector
--Clip parsing algorithm
--Pagination - Add unique cursor id to each row?
+-Pagination
+-Clip fetching algorithm
 -No clips page
--Hotkeys
+-Refresh button
+-Error handling
+-Hotkeys - react hotkeys hook
 
 ISSUES
 -Unable to detect when clip ends

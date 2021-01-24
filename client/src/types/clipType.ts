@@ -3,6 +3,7 @@ export interface ClipType {
   user_id: number;
   user_name: string;
   game_name: string;
+  game_id: number;
   stream_type: string;
   stream_title: string;
   stream_viewer_count: number;

@@ -22,7 +22,7 @@ module.exports = {
       },
       backgroundColor: (theme) => ({
         ...theme("colors"),
-        dark: "#090D15",
+        dark: "#0C111C",
         light: "#161e32",
       }),
       gridTemplateRows: {
