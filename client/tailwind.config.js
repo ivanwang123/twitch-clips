@@ -34,7 +34,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      transform: ["group-hover"],
+      rotate: ["group-hover"],
+    },
   },
   plugins: [],
 };

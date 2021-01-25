@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { useInfiniteQuery } from "react-query";
+import { useHotkeys } from "react-hotkeys-hook";
 import { ClipType } from "../types/clipType";
 import ClipInfo from "../components/ClipInfo";
 import ClipVideo from "../components/ClipVideo";
 import NavBar from "../components/NavBar";
+import NoClips from "../components/NoClips";
 
 async function fetchClips(queryArgs: any) {
   const params = {
@@ -19,7 +21,7 @@ async function fetchClips(queryArgs: any) {
       },
     }
   );
-  console.log("STREAMS DATA", data);
+  // console.log("STREAMS DATA", data);
   return await data.json();
 }
 
@@ -55,6 +57,9 @@ function ClipPage() {
   const streamInfoRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLElement>(null);
 
+  useHotkeys("j", () => prevClip());
+  useHotkeys("l", () => nextClip());
+
   const toggleLandscapePage = (page: HTMLElement | null) => {
     if (page) {
       let top = page.style.top;
@@ -75,19 +80,8 @@ function ClipPage() {
   const refreshClips = () => {
     console.log("REFRESH");
     setClipIndex(0);
-    setClipStatus("clip");
     refetch();
   };
-
-  useEffect(() => {
-    console.log("DATA", data, hasNextPage);
-    if (data && data.pages.length && data.pages[0].clips.length) {
-      setCurClip(data.pages[0].clips[0]);
-      setClipStatus("clip");
-    } else {
-      setClipStatus("none");
-    }
-  }, [data, hasNextPage]);
 
   // Moving through clips
   useEffect(() => {
@@ -102,11 +96,12 @@ function ClipPage() {
       console.log("PAGES", data.pages);
       // Loop through all pages
       for (let p = 0; p < data.pages.length; p++) {
-        console.log("FIND CLIP", p, countIndex, newClipIndex);
         // Find the page where the clip is in
         if (countIndex + data.pages[p].clips.length - 1 >= newClipIndex) {
           foundClip = true;
+          console.log("FOUND CLIP", p, countIndex, newClipIndex);
           setCurClip(data.pages[p].clips[newClipIndex - countIndex]);
+          setClipStatus("clip");
           break;
         } else {
           countIndex += data.pages[p].clips.length;
@@ -116,6 +111,7 @@ function ClipPage() {
       // If clip not found, then fetch more or reached end of clips
       if (!foundClip) {
         newClipIndex = countIndex;
+        console.log("CLIP NOT FOUND", newClipIndex);
         if (hasNextPage) {
           console.log("FETCH NEXT PAGE");
           fetchNextPage();
@@ -131,6 +127,18 @@ function ClipPage() {
       setClipIndex(newClipIndex);
     }
   }, [data, clipIndex, hasNextPage]);
+
+  // Initialize first clip
+  useEffect(() => {
+    console.log("DATA", data, hasNextPage);
+    if (data && data.pages.length && data.pages[0].clips.length) {
+      setCurClip(data.pages[0].clips[0]);
+      setClipIndex(0);
+      setClipStatus("clip");
+    } else {
+      setClipStatus("none");
+    }
+  }, [data, hasNextPage]);
 
   const nextClip = () => setClipIndex((prevIndex) => prevIndex + 1);
   const prevClip = () => setClipIndex((prevIndex) => prevIndex - 1);
@@ -168,62 +176,13 @@ function ClipPage() {
               navRef={navRef}
             />
           ) : (
-            <>
-              <div className="w-full h-full flex flex-col justify-center items-center">
-                <h1 className="text-6xl text-gray-300 font-bold text-center">
-                  {clipStatus === "end" ? (
-                    <>
-                      You've<br></br>Reached<br></br>
-                      <span className="font-normal">the</span> End
-                    </>
-                  ) : (
-                    "No Clips :("
-                  )}
-                </h1>
-                <span className="flex items-center text-gray-500 mt-5">
-                  <button
-                    type="button"
-                    className="icon-btn p-1 mr-2"
-                    onClick={refreshClips}
-                  >
-                    <img
-                      className="w-6 h-6 transform transition duration-300 hover:rotate-90"
-                      src="res/refresh.svg"
-                      alt="refresh"
-                    />
-                  </button>
-                  {clipStatus === "end"
-                    ? "Refresh to get the newest clips"
-                    : "Refresh, or choose a different game/language"}
-                </span>
-              </div>
-              <div className="hidden w-24 h-full bg-gray-900 text-gray-200 pt-1 landscape:flex flex-col items-center">
-                <button
-                  type="button"
-                  className="icon-btn mt-24 p-1"
-                  onClick={() => toggleLandscapePage(navRef.current)}
-                >
-                  <img
-                    className="w-8 h-8"
-                    src="res/adjustments.svg"
-                    alt="settings"
-                  />
-                </button>
-                {clipStatus === "end" && (
-                  <button
-                    type="button"
-                    className="icon-btn mt-auto mb-6 p-1"
-                    onClick={prevClip}
-                  >
-                    <img
-                      className="w-8 h-8"
-                      src="res/chevron-left.svg"
-                      alt="prev clip"
-                    />
-                  </button>
-                )}
-              </div>
-            </>
+            <NoClips
+              clipStatus={clipStatus}
+              prevClip={prevClip}
+              refreshClips={refreshClips}
+              toggleLandscapePage={toggleLandscapePage}
+              navRef={navRef}
+            />
           )}
         </section>
 

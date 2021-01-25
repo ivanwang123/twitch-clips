@@ -1,12 +1,10 @@
 Created 1/16/21
 
 TODO
--Pagination
 -Clip fetching algorithm
--No clips page
--Refresh button
 -Error handling
--Hotkeys - react hotkeys hook
+-Live last updated
+-Split status into components
 
 ISSUES
 -Unable to detect when clip ends

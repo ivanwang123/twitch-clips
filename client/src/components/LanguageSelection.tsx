@@ -1,13 +1,16 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useRef } from "react";
 import languageIDs from "../utils/languageIDs";
 
 interface PropTypes {
   language: string;
   setLanguage: Dispatch<SetStateAction<string>>;
+  toggleLandscapePage: (page: HTMLElement | null) => void;
 }
 
 function LanguageSelection(props: PropTypes) {
-  const { language, setLanguage } = props;
+  const { language, setLanguage, toggleLandscapePage } = props;
+
+  const selectRef = useRef<HTMLSelectElement>(null);
 
   return (
     <>
@@ -16,7 +19,12 @@ function LanguageSelection(props: PropTypes) {
                   transition duration-300 hover:text-gray-300
                   lg:bg-light lg:max-w-10 landscape:max-w-10"
         id="select-lang"
-        onChange={(e) => setLanguage(e.target.value)}
+        ref={selectRef}
+        onChange={(e) => {
+          toggleLandscapePage(null);
+          setLanguage(e.target.value);
+          selectRef.current?.blur();
+        }}
       >
         {Object.entries(languageIDs).map(([lang, abbrev]) => {
           return (

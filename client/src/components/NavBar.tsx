@@ -34,22 +34,37 @@ function NavBar(props: PropTypes) {
       </button>
       <section className="w-full flex items-center">
         <div className="flex items-center">
-          <button type="button" className="icon-btn p-1" onClick={refreshClips}>
+          <button
+            type="button"
+            className="icon-btn group flex items-center p-1"
+            onClick={() => {
+              toggleLandscapePage(null);
+              refreshClips();
+            }}
+          >
             <img
-              className="w-6 h-6 transform transition duration-300 hover:rotate-90"
+              className="w-6 h-6 transform transition duration-300 group-hover:rotate-90"
               src="res/refresh.svg"
               alt="refresh"
             />
+            <span className="hidden text-gray-500 text-sm font-semibold ml-1 landscape:block lg:ml-2 lg:block">
+              {/* <strong>142 clips</strong> from past 30 min */}
+              Refresh
+            </span>
           </button>
-          <span className="hidden text-gray-500 text-sm font-semibold ml-3 lg:block">
-            {/* <strong>142 clips</strong> from past 30 min */}
-            Refresh
-          </span>
         </div>
 
         {/* GAME SELECTION */}
-        <GameSelection game={game} setGame={setGame} />
-        <LanguageSelection language={language} setLanguage={setLanguage} />
+        <GameSelection
+          game={game}
+          setGame={setGame}
+          toggleLandscapePage={toggleLandscapePage}
+        />
+        <LanguageSelection
+          language={language}
+          setLanguage={setLanguage}
+          toggleLandscapePage={toggleLandscapePage}
+        />
       </section>
     </>
   );
