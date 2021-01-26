@@ -1,14 +1,12 @@
-import { Dispatch, SetStateAction, useRef } from "react";
+import { useRef } from "react";
 import gameIDs from "../utils/gameIDs";
 
 interface PropTypes {
-  game: string;
-  setGame: Dispatch<SetStateAction<string>>;
-  toggleLandscapePage: (page: HTMLElement | null) => void;
+  setGameSelection: (e: any) => void;
 }
 
 function GameSelection(props: PropTypes) {
-  const { game, setGame, toggleLandscapePage } = props;
+  const { setGameSelection } = props;
 
   const selectRef = useRef<HTMLSelectElement>(null);
 
@@ -32,14 +30,13 @@ function GameSelection(props: PropTypes) {
         id="select-category"
         ref={selectRef}
         onChange={(e) => {
-          toggleLandscapePage(null);
-          setGame(e.target.value);
+          setGameSelection(e);
           selectRef.current?.blur();
         }}
       >
         {Object.entries(gameIDs).map(([title, id]) => {
           return (
-            <option value={id} selected={id === game}>
+            <option value={id} key={id}>
               {title}
             </option>
           );

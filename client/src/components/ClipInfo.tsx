@@ -25,11 +25,11 @@ function ClipInfo(props: PropTypes) {
   return (
     <>
       <div className="flex flex-col w-full h-full bg-gray-900 p-3 lg:px-5">
-        <div className="flex w-full text-lg mb-3 landscape:hidden">
+        <div className="w-full flex text-lg mb-3 landscape:hidden">
           {clipIndex !== 0 && (
             <button
               type="button"
-              className="icon-btn group flex"
+              className="icon-btn flex items-center group pr-2"
               onClick={prevClip}
             >
               <img
@@ -37,6 +37,9 @@ function ClipInfo(props: PropTypes) {
                 src="res/chevron-left.svg"
                 alt="prev clip"
               />
+              <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
+                Back <span className="hidden lg:inline-block">(J)</span>
+              </span>
             </button>
           )}
           <button
@@ -45,7 +48,7 @@ function ClipInfo(props: PropTypes) {
             onClick={nextClip}
           >
             <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
-              Next Clip
+              Next Clip <span className="hidden lg:inline-block">(L)</span>
             </span>
             <img
               className="w-6 h-6"

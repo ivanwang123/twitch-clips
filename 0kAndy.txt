@@ -1,10 +1,13 @@
 Created 1/16/21
 
 TODO
--Clip fetching algorithm
+-Revamp clip fetching algorithm
+-Add ratelimit failsafe
+-Refresh token
 -Error handling
--Live last updated
--Split status into components
+-Add loading button/screen
+-Live last updated?
+
 
 ISSUES
 -Unable to detect when clip ends

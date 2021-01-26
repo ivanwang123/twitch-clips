@@ -1,12 +1,10 @@
-import { Dispatch, RefObject, SetStateAction } from "react";
+import { RefObject } from "react";
 import GameSelection from "../components/GameSelection";
 import LanguageSelection from "../components/LanguageSelection";
 
 interface PropTypes {
-  game: string;
-  language: string;
-  setGame: Dispatch<SetStateAction<string>>;
-  setLanguage: Dispatch<SetStateAction<string>>;
+  setGameSelection: (e: any) => void;
+  setLanguageSelection: (e: any) => void;
   toggleLandscapePage: (page: HTMLElement | null) => void;
   refreshClips: () => void;
   navRef: RefObject<HTMLElement>;
@@ -14,10 +12,8 @@ interface PropTypes {
 
 function NavBar(props: PropTypes) {
   const {
-    game,
-    language,
-    setGame,
-    setLanguage,
+    setGameSelection,
+    setLanguageSelection,
     toggleLandscapePage,
     refreshClips,
     navRef,
@@ -47,7 +43,10 @@ function NavBar(props: PropTypes) {
               src="res/refresh.svg"
               alt="refresh"
             />
-            <span className="hidden text-gray-500 text-sm font-semibold ml-1 landscape:block lg:ml-2 lg:block">
+            <span
+              className="hidden text-gray-500 text-sm font-semibold ml-1 transition duration-300 group-hover:text-gray-300
+                        landscape:block lg:ml-2 lg:block"
+            >
               {/* <strong>142 clips</strong> from past 30 min */}
               Refresh
             </span>
@@ -55,16 +54,8 @@ function NavBar(props: PropTypes) {
         </div>
 
         {/* GAME SELECTION */}
-        <GameSelection
-          game={game}
-          setGame={setGame}
-          toggleLandscapePage={toggleLandscapePage}
-        />
-        <LanguageSelection
-          language={language}
-          setLanguage={setLanguage}
-          toggleLandscapePage={toggleLandscapePage}
-        />
+        <GameSelection setGameSelection={setGameSelection} />
+        <LanguageSelection setLanguageSelection={setLanguageSelection} />
       </section>
     </>
   );

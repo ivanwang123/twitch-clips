@@ -12,7 +12,7 @@ async function fetchClips(queryArgs: any) {
     ...queryArgs.queryKey[1],
     cursor: queryArgs.pageParam || "",
   };
-  console.log("PARAMS", params);
+  // console.log("PARAMS", params);
   const data = await fetch(
     "http://localhost:5000/test/db-streams?" + new URLSearchParams(params),
     {
@@ -83,9 +83,34 @@ function ClipPage() {
     refetch();
   };
 
+  const setGameSelection = (e: any) => {
+    setGame(e.target.value);
+    setClipIndex(0);
+    toggleLandscapePage(null);
+  };
+
+  const setLanguageSelection = (e: any) => {
+    setLanguage(e.target.value);
+    setClipIndex(0);
+    toggleLandscapePage(null);
+  };
+
+  // Initialize first clip
+  // useEffect(() => {
+  //   console.log("DATA", data);
+  //   if (data && data.pages.length && data.pages[0].clips.length) {
+  //     // setCurClip(data.pages[0].clips[0]);
+  //     // setClipIndex(0);
+  //     setClipStatus("clip");
+  //   } else {
+  //     setClipStatus("none");
+  //   }
+  // }, [data]);
+
   // Moving through clips
   useEffect(() => {
     if (data) {
+      console.log("START");
       let newClipIndex = clipIndex;
 
       if (clipIndex < 0) newClipIndex = 0;
@@ -93,13 +118,13 @@ function ClipPage() {
       let countIndex = 0;
       let foundClip = false;
 
-      console.log("PAGES", data.pages);
+      // console.log("PAGES", data.pages);
       // Loop through all pages
       for (let p = 0; p < data.pages.length; p++) {
         // Find the page where the clip is in
         if (countIndex + data.pages[p].clips.length - 1 >= newClipIndex) {
           foundClip = true;
-          console.log("FOUND CLIP", p, countIndex, newClipIndex);
+          // console.log("FOUND CLIP", p, countIndex, newClipIndex);
           setCurClip(data.pages[p].clips[newClipIndex - countIndex]);
           setClipStatus("clip");
           break;
@@ -111,9 +136,9 @@ function ClipPage() {
       // If clip not found, then fetch more or reached end of clips
       if (!foundClip) {
         newClipIndex = countIndex;
-        console.log("CLIP NOT FOUND", newClipIndex);
+        // console.log("CLIP NOT FOUND", newClipIndex);
         if (hasNextPage) {
-          console.log("FETCH NEXT PAGE");
+          // console.log("FETCH NEXT PAGE");
           fetchNextPage();
         } else {
           setCurClip(null);
@@ -124,21 +149,10 @@ function ClipPage() {
           }
         }
       }
+      console.log("FINISH");
       setClipIndex(newClipIndex);
     }
   }, [data, clipIndex, hasNextPage]);
-
-  // Initialize first clip
-  useEffect(() => {
-    console.log("DATA", data, hasNextPage);
-    if (data && data.pages.length && data.pages[0].clips.length) {
-      setCurClip(data.pages[0].clips[0]);
-      setClipIndex(0);
-      setClipStatus("clip");
-    } else {
-      setClipStatus("none");
-    }
-  }, [data, hasNextPage]);
 
   const nextClip = () => setClipIndex((prevIndex) => prevIndex + 1);
   const prevClip = () => setClipIndex((prevIndex) => prevIndex - 1);
@@ -154,10 +168,8 @@ function ClipPage() {
         ref={navRef}
       >
         <NavBar
-          game={game}
-          language={language}
-          setGame={setGame}
-          setLanguage={setLanguage}
+          setGameSelection={setGameSelection}
+          setLanguageSelection={setLanguageSelection}
           toggleLandscapePage={toggleLandscapePage}
           refreshClips={refreshClips}
           navRef={navRef}
@@ -218,7 +230,7 @@ function ClipPage() {
                         alt="prev clip"
                       />
                       <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
-                        Back
+                        Back <span className="hidden lg:inline-block">(J)</span>
                       </span>
                     </button>
                   </div>
