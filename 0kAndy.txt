@@ -1,8 +1,7 @@
 Created 1/16/21
 
 TODO
--Revamp clip fetching algorithm
--Add ratelimit failsafe
+-Delete excess clips from db
 -Refresh token
 -Error handling
 -Add loading button/screen

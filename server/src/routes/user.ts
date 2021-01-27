@@ -18,14 +18,14 @@ router.get("/all", async (_, res) => {
         const stream = streams.data[i];
         const clip = await getClips(stream.user_id, latestDate);
         const user = await getUser(stream.user_id);
-        if (clip.data[0]) console.log("CLIP", clip.data[0]);
+        if (clip.clips.data[0]) console.log("CLIP", clip.clips.data[0]);
         if (user.data[0]) console.log("USER", user.data[0]);
 
-        if (user.data[0] && clip.data[0]) {
+        if (user.data[0] && clip.clips.data[0]) {
           const clipData = {
             ...stream,
-            user: user.data[0],
-            clip: clip.data[0],
+            user: user.clips.data[0],
+            clip: clip.clips.data[0],
           };
           clipsData.push(clipData);
           console.log("CLIPS DATA", clipsData);
