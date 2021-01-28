@@ -13,6 +13,9 @@ module.exports = {
       minHeight: {
         2: "2.5rem",
       },
+      maxHeight: {
+        "screen-xl": "960px",
+      },
       width: {
         100: "32rem",
       },

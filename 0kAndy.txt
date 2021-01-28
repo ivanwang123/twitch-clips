@@ -1,11 +1,10 @@
 Created 1/16/21
 
 TODO
--Delete excess clips from db
--Refresh token
--Error handling
--Add loading button/screen
 -Live last updated?
+-Error handling
+-Style refresh buton
+-Add loading button/screen
 
 
 ISSUES

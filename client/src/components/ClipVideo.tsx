@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { RefObject, useEffect, useRef } from "react";
 import { ClipType } from "src/types/clipType";
 
 interface PropTypes {
@@ -20,6 +20,16 @@ function ClipVideo(props: PropTypes) {
     navRef,
   } = props;
 
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    if (iframeRef && iframeRef.current) {
+      iframeRef.current.addEventListener("play", (e: any) => {
+        console.log("PROGRESS", e);
+      });
+    }
+  }, [iframeRef]);
+
   return (
     <>
       <iframe
@@ -27,9 +37,11 @@ function ClipVideo(props: PropTypes) {
         title={curClip?.clip_title}
         height="100%"
         width="100%"
-        key={curClip?.clip_id}
-        allow="autoplay"
         className="lg:rounded-l"
+        allow="autoplay"
+        allowFullScreen={true}
+        key={curClip?.clip_id}
+        ref={iframeRef}
       ></iframe>
       <div className="hidden w-24 h-full bg-gray-900 text-gray-200 landscape:flex flex-col items-center">
         <button

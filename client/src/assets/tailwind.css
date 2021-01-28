@@ -14,9 +14,7 @@ body,
   display: flex;
   justify-content: center;
   align-items: center;
-  /* @apply bg-gray-900; */
-  /* @apply bg-gray-800; */
-  background: #161e32;
+  @apply bg-light;
 }
 
 /* 131A2B, 161E32 */
@@ -43,4 +41,24 @@ select {
 
 option:checked {
   font-weight: bold;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-dark;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
 }

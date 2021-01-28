@@ -158,7 +158,7 @@ function ClipPage() {
   const prevClip = () => setClipIndex((prevIndex) => prevIndex - 1);
 
   return (
-    <div className="fixed w-full h-full grid grid-rows-vert justify-items-center landscape:grid-rows-1">
+    <div className="fixed w-full h-full grid grid-rows-vert justify-items-center items-center landscape:grid-rows-1">
       {/* NAVBAR */}
       <nav
         className="row-span-1 bg-gray-900 w-full h-full flex text-gray-500 px-3 z-10 transition-top duration-300
@@ -175,7 +175,7 @@ function ClipPage() {
           navRef={navRef}
         />
       </nav>
-      <main className="row-span-1 w-full h-full lg:flex lg:h-5/6 lg:px-24 lg:max-w-screen-xl lg:mt-5">
+      <main className="row-span-1 w-full h-full lg:max-w-screen-xl lg:max-h-screen-xl lg:flex lg:h-full lg:px-24 lg:pt-1 lg:pb-7">
         {/* CLIP VIDEO SECTION */}
         <section className="flex w-full h-2/4 bg-black landscape:h-full lg:h-full">
           {clipStatus === "clip" ? (
