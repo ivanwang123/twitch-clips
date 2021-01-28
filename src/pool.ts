@@ -5,8 +5,14 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
+const connectionString =
+  process.env.DATABASE_URL || process.env.DB_CONNECTION_STRING;
+
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: connectionString,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 export default pool;
