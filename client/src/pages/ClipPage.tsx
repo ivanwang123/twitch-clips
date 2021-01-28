@@ -13,14 +13,11 @@ async function fetchClips(queryArgs: any) {
     cursor: queryArgs.pageParam || "",
   };
   // console.log("PARAMS", params);
-  const data = await fetch(
-    "http://localhost:5000/test/db-streams?" + new URLSearchParams(params),
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  const data = await fetch("test/db-streams?" + new URLSearchParams(params), {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   // console.log("STREAMS DATA", data);
   return await data.json();
 }
