@@ -6,8 +6,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const pool = new Pool({
-  connectionString:
-    process.env.DATABASE_URL || process.env.DB_CONNECTION_STRING,
+  connectionString: process.env.DATABASE_URL,
 });
 
 export default pool;
