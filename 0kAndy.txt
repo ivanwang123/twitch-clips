@@ -1,9 +1,14 @@
 Created 1/16/21
 
 TODO
+-Fix mobile support
+-Clean up endpoints
+-Create logo
+-Change title
 -Error handling
 -Style refresh buton
 -Add loading button/screen
+-Remove access token
 
 
 ISSUES
