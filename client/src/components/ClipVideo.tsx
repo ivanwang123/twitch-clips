@@ -27,7 +27,7 @@ function ClipVideo(props: PropTypes) {
         title={curClip?.clip_title}
         height="100%"
         width="100%"
-        className="lg:rounded-l"
+        className="z-10 lg:rounded-l"
         allow="autoplay"
         allowFullScreen={true}
         key={curClip?.clip_id}
