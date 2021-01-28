@@ -3,11 +3,11 @@ import cors from "cors";
 import clip from "./routes/clip";
 import user from "./routes/user";
 import test from "./routes/test";
-import { fetchData } from "./dataFetcher";
+// import { fetchData } from "./dataFetcher";
 
 const app = express();
 
-fetchData();
+// fetchData();
 // getValidated();
 
 app.use(cors());

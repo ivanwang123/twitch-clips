@@ -81,7 +81,7 @@ function ClipInfo(props: PropTypes) {
             <img className="w-6 h-6" src="res/close.svg" alt="close" />
           </button>
         </div>
-        <span className="text-2xl text-gray-300 mt-3">
+        <span className="text-2xl text-gray-300 mt-3 break-words">
           {curClip?.clip_title}
         </span>
         <span className="text-gray-500 text-sm font-semibold mt-1">

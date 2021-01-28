@@ -158,7 +158,7 @@ function ClipPage() {
   const prevClip = () => setClipIndex((prevIndex) => prevIndex - 1);
 
   return (
-    <div className="fixed w-full h-full grid grid-rows-vert justify-items-center items-center landscape:grid-rows-1">
+    <div className="fixed w-full h-full grid grid-rows-vert justify-items-center landscape:grid-rows-1">
       {/* NAVBAR */}
       <nav
         className="row-span-1 bg-gray-900 w-full h-full flex text-gray-500 px-3 z-10 transition-top duration-300
@@ -175,7 +175,7 @@ function ClipPage() {
           navRef={navRef}
         />
       </nav>
-      <main className="row-span-1 w-full h-full lg:max-w-screen-xl lg:max-h-screen-xl lg:flex lg:h-full lg:px-24 lg:pt-1 lg:pb-7">
+      <main className="row-span-1 w-full h-full overflow-y-auto lg:max-w-screen-xl lg:max-h-screen-xl lg:h-full lg:flex lg:px-24 lg:pt-1 lg:pb-7">
         {/* CLIP VIDEO SECTION */}
         <section className="flex w-full h-2/4 bg-black landscape:h-full lg:h-full">
           {clipStatus === "clip" ? (
@@ -202,7 +202,7 @@ function ClipPage() {
         <section
           className="w-full h-2/4 bg-gray-900 overflow-y-auto z-10 transition-top duration-300
                     landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
-                    lg:w-100 lg:h-full lg:overflow-y-auto lg:rounded-r"
+                    lg:w-100 lg:h-full lg:rounded-r"
           ref={streamInfoRef}
         >
           {clipStatus === "clip" ? (
@@ -245,43 +245,3 @@ function ClipPage() {
 }
 
 export default ClipPage;
-
-// useEffect(() => {
-//   if (iframeRef.current) {
-//     iframeRef.current.onended = () => console.log("VIDEO ENDED");
-//     iframeRef.current.onchange = () => console.log("ON CHANGE");
-//     // iframeRef.current.on("ended", () => console.log("ON ENDED"));
-//     iframeRef.current.addEventListener("ended", () => console.log("ENDED"));
-//   }
-// }, [iframeRef.current]);
-
-// useEffect(() => {
-//   window.matchMedia("(orientation: portrait)").onchange = (m) => {
-//     console.log(m);
-//     if (streamInfoRef.current) {
-//       streamInfoRef.current.style.display = "none";
-//       const h = streamInfoRef.current.offsetHeight; //cause a reflow
-//       console.log(h);
-//       streamInfoRef.current.style.display = "flex";
-//     }
-//     // if (streamInfoRef.current)
-//     //   if (m.matches) {
-//     //     streamInfoRef.current.style.top = "0px";
-//     //   } else {
-//     //     streamInfoRef.current.style.top = "100%";
-//     //   }
-//   };
-// }, []);
-
-// if (isLoading) return <h1>Loading...</h1>;
-// if (isError) return <h1>Error: {error}</h1>;
-//
-
-// useEffect(() => {
-//   const focusTimeout = setTimeout(() => {
-//     console.log("FOCUS");
-//     iframeRef.current?.click();
-//   }, 4000);
-
-//   return () => clearTimeout(focusTimeout);
-// }, [curClip?.clip_embed_url]);
