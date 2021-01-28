@@ -174,7 +174,7 @@ function ClipPage() {
       </nav>
       <main className="row-span-1 w-full h-full overflow-y-auto lg:max-w-screen-xl lg:max-h-screen-xl lg:h-full lg:flex lg:px-24 lg:pt-1 lg:pb-7">
         {/* CLIP VIDEO SECTION */}
-        <section className="flex w-full h-2/4 bg-black landscape:h-full lg:h-full">
+        <section className="flex w-full h-2/4 max-h-40 bg-black landscape:h-full lg:h-full">
           {clipStatus === "clip" ? (
             <ClipVideo
               curClip={curClip}

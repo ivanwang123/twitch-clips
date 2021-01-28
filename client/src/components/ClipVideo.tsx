@@ -1,4 +1,4 @@
-import { RefObject, useRef } from "react";
+import { RefObject } from "react";
 import { ClipType } from "src/types/clipType";
 
 interface PropTypes {

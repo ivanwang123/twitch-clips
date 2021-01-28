@@ -52,9 +52,10 @@ function NavBar(props: PropTypes) {
             </span>
           </button>
         </div>
-
         {/* GAME SELECTION */}
-        <GameSelection setGameSelection={setGameSelection} />
+        <span className="flex border-r border-gray-500 ml-auto">
+          <GameSelection setGameSelection={setGameSelection} />
+        </span>
         <LanguageSelection setLanguageSelection={setLanguageSelection} />
       </section>
     </>
