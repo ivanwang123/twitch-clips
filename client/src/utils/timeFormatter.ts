@@ -8,7 +8,7 @@ export const formatTimestamp = (
     let unit = "second";
 
     if (secondsElapsed < 60) {
-      value = secondsElapsed;
+      value = Math.floor(secondsElapsed);
       unit = "second";
     } else if (secondsElapsed < 3600) {
       value = Math.floor(secondsElapsed / 60);

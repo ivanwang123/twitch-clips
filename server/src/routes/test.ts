@@ -22,7 +22,7 @@ router.get("/db-streams", (req, res) => {
 
     // Paginate by created_at date
     if (cursor?.length) {
-      query.where({ clip_created_at: cursor }, "<");
+      query.where({ created_at: cursor }, "<");
       hasCursor = true;
     }
 
@@ -36,7 +36,7 @@ router.get("/db-streams", (req, res) => {
     }
 
     // Take 10 most recent
-    query.orderby("clip_created_at DESC").limit(10, 0);
+    query.orderby("created_at DESC").limit(10, 0);
 
     console.log("QUERY", query.text, query.values);
 

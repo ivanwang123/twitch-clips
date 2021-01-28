@@ -97,8 +97,8 @@ function ClipInfo(props: PropTypes) {
                   LIVE
                 </span>
                 {formatNumber(curClip?.stream_viewer_count)} viewer
-                {curClip?.stream_viewer_count === 1 ? "" : "s"} · Updated 31
-                minutes ago
+                {curClip?.stream_viewer_count === 1 ? "" : "s"} · Updated{" "}
+                {formatTimestamp(curClip?.created_at)}
               </div>
             )}
             <span className="text-gray-300 font-semibold my-1">

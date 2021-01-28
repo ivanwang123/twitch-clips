@@ -1,7 +1,6 @@
 Created 1/16/21
 
 TODO
--Live last updated?
 -Error handling
 -Style refresh buton
 -Add loading button/screen

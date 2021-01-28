@@ -88,7 +88,7 @@ export const fetchData = async () => {
       const cleanDbText = `DELETE FROM clips
                           WHERE id NOT IN (
                             SELECT id FROM clips
-                            ORDER BY clip_created_at DESC
+                            ORDER BY created_at DESC
                             LIMIT 120
                           );`;
       pool

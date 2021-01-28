@@ -43,7 +43,7 @@ function ClipPage() {
       getNextPageParam: (lastPage, _) => {
         // console.log("LAST PAGE", lastPage, page);
         if (lastPage.clips.length) {
-          return lastPage.clips[lastPage.clips.length - 1].clip_created_at;
+          return lastPage.clips[lastPage.clips.length - 1].created_at;
         } else {
           return false;
         }

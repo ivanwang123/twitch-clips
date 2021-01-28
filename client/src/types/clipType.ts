@@ -17,4 +17,6 @@ export interface ClipType {
   clip_title: string;
   clip_view_count: number;
   clip_created_at: Date;
+
+  created_at: Date;
 }
