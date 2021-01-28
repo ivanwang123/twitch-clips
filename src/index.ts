@@ -11,7 +11,7 @@ const app = express();
 // fetchData();
 // getValidated();
 
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.use(cors());
 
