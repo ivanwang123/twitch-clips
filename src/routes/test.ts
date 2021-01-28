@@ -63,7 +63,7 @@ router.get("/games", async (_, res) => {
 
 export default router;
 
-// STREAMS
+// STREAMS TEST DATA
 const streams = [
   {
     id: "41378136222",
