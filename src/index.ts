@@ -3,7 +3,7 @@ import cors from "cors";
 import clip from "./routes/clip";
 import user from "./routes/user";
 import test from "./routes/test";
-import path from "path";
+// import path from "path";
 // import { fetchData } from "./dataFetcher";
 
 const app = express();
@@ -11,8 +11,8 @@ const app = express();
 // fetchData();
 // getValidated();
 
-if (process.env.NODE_ENV === "production")
-  app.use(express.static(path.join(__dirname, "../client/build")));
+// if (process.env.NODE_ENV === "production")
+//   app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.use(cors());
 
