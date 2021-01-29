@@ -1,0 +1,31 @@
+Created 1/16/21
+
+TODO
+-Fix mobile support
+-Clean up endpoints
+-Create logo
+-Change title
+-Error handling
+-Style refresh buton
+-Add loading button/screen
+-Remove access token
+
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "postinstall": "npm run build",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+
+ISSUES
+-Unable to detect when clip ends
+-Rate limit
+-Getting clips from < 10 viewers
+-Refetching
+-Pagination
+-Categories
+
+DESIGN
+-Scroll left/right to move through clips
+-Scroll up to view streamer info
+-Display streamer info after video ends
+-Refresh every few minutes
