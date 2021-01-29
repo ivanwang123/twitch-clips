@@ -23,7 +23,7 @@ function ClipVideo(props: PropTypes) {
   return (
     <>
       <iframe
-        src={`${curClip?.clip_embed_url}&parent=localhost&parent=twitch-clips.vercel.app&parent=twitch-streamer-clips.herokuapp.com&parent=twitch-clips-frontend.vercel.app&autoplay=true`}
+        src={`${curClip?.clip_embed_url}&parent=localhost&parent=twitch-clips.vercel.app&parent=twitch-streamer-clips.herokuapp.com&parent=0kandy.vercel.app&autoplay=true`}
         title={curClip?.clip_title}
         height="100%"
         width="100%"
