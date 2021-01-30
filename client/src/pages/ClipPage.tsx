@@ -5,7 +5,7 @@ import { ClipType } from "../types/clipType";
 import ClipInfo from "../components/ClipInfo";
 import ClipVideo from "../components/ClipVideo";
 import NavBar from "../components/NavBar";
-import NoClips from "../components/NoClips";
+import ClipStatus from "../components/ClipStatus";
 
 async function fetchClips(queryArgs: any) {
   const params = {
@@ -34,6 +34,7 @@ function ClipPage() {
     data,
     hasNextPage,
     // isFetchingNextPage,
+    isFetching,
     fetchNextPage,
     refetch,
   } = useInfiniteQuery(
@@ -177,8 +178,9 @@ function ClipPage() {
               navRef={navRef}
             />
           ) : (
-            <NoClips
+            <ClipStatus
               clipStatus={clipStatus}
+              isFetching={isFetching}
               prevClip={prevClip}
               refreshClips={refreshClips}
               toggleLandscapePage={toggleLandscapePage}
@@ -186,7 +188,6 @@ function ClipPage() {
             />
           )}
         </section>
-
         {/* CLIP INFO SECTION */}
         <section
           className="w-full h-2/4 bg-gray-900 overflow-y-auto z-10 transition-top duration-300
