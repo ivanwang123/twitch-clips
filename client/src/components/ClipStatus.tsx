@@ -22,7 +22,7 @@ function ClipStatus(props: PropTypes) {
   return (
     <>
       <div className="w-full h-full flex flex-col justify-center items-center">
-        {/* Main message */}
+        {/* TITLE */}
         <h1 className="text-6xl text-gray-300 font-bold text-center">
           {isFetching ? (
             "Loading Clips..."
@@ -39,7 +39,8 @@ function ClipStatus(props: PropTypes) {
             </>
           )}
         </h1>
-        {/* Refresh subtext */}
+
+        {/* SUBTEXT */}
         {!isFetching && (
           <span className="flex items-center text-gray-500 mt-5">
             <button
@@ -59,7 +60,8 @@ function ClipStatus(props: PropTypes) {
           </span>
         )}
       </div>
-      {/* Landscape sidebar */}
+
+      {/* LANDSCAPE SIDEBAR */}
       <div className="hidden w-24 h-full bg-gray-900 text-gray-200 pt-1 landscape:flex flex-col items-center">
         <button
           type="button"

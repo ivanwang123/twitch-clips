@@ -75,7 +75,6 @@ export const fetchData = async () => {
           if (streams.pagination && offset < MAX_OFFSET - 1) {
             cursor = streams.pagination.cursor;
             offset++;
-            console.log("CURSOR", cursor, offset);
           } else {
             cursor = START_CURSOR;
             offset = 0;

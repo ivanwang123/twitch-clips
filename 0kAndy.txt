@@ -5,10 +5,8 @@ TODO
 -Clean up endpoints
 -Create logo
 -Change title
--Error handling
--Style refresh buton
--Add initial loading button/screen
 -Remove access token
+-Error handling
 
 "dev": "ts-node-dev --respawn src/index.ts",
 "start": "node dist/index.js",

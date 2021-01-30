@@ -34,7 +34,6 @@ export const getClips = async (
       }
     )
     .then((res) => {
-      // console.log("RATE LIMIT", res.headers["ratelimit-remaining"]);
       // process.stdout.write(res.headers["ratelimit-remaining"] + " ");
       return {
         clips: res.data,
@@ -85,7 +84,6 @@ export const getValidated = async () => {
             },
           }
         );
-        console.log("TOKEN", res.data.access_token);
         accessToken = res.data.access_token;
         header["Authorization"] = `Bearer ${accessToken}`;
       } catch (e) {

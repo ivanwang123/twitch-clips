@@ -12,7 +12,7 @@ async function fetchClips(queryArgs: any) {
     ...queryArgs.queryKey[1],
     cursor: queryArgs.pageParam || "",
   };
-  // console.log("PARAMS", params);
+
   const data = await fetch(
     "https://twitch-streamer-clips.herokuapp.com/test/db-streams?" +
       new URLSearchParams(params),
@@ -22,7 +22,7 @@ async function fetchClips(queryArgs: any) {
       },
     }
   );
-  // console.log("STREAMS DATA", data);
+
   return await data.json();
 }
 
@@ -43,7 +43,6 @@ function ClipPage() {
     {
       retry: 1,
       getNextPageParam: (lastPage, _) => {
-        // console.log("LAST PAGE", lastPage, page);
         if (lastPage.clips.length) {
           return lastPage.clips[lastPage.clips.length - 1].created_at;
         } else {
@@ -80,7 +79,6 @@ function ClipPage() {
   };
 
   const refreshClips = () => {
-    console.log("REFRESH");
     setClipIndex(0);
     refetch();
   };
@@ -100,7 +98,6 @@ function ClipPage() {
   // Moving through clips
   useEffect(() => {
     if (data) {
-      console.log("START");
       let newClipIndex = clipIndex;
 
       if (clipIndex < 0) newClipIndex = 0;
@@ -108,13 +105,11 @@ function ClipPage() {
       let countIndex = 0;
       let foundClip = false;
 
-      // console.log("PAGES", data.pages);
       // Loop through all pages
       for (let p = 0; p < data.pages.length; p++) {
         // Find the page where the clip is in
         if (countIndex + data.pages[p].clips.length - 1 >= newClipIndex) {
           foundClip = true;
-          // console.log("FOUND CLIP", p, countIndex, newClipIndex);
           setCurClip(data.pages[p].clips[newClipIndex - countIndex]);
           setClipStatus("clip");
           break;
@@ -126,9 +121,7 @@ function ClipPage() {
       // If clip not found, then fetch more or reached end of clips
       if (!foundClip) {
         newClipIndex = countIndex;
-        // console.log("CLIP NOT FOUND", newClipIndex);
         if (hasNextPage) {
-          // console.log("FETCH NEXT PAGE");
           fetchNextPage();
         } else {
           setCurClip(null);
@@ -139,7 +132,6 @@ function ClipPage() {
           }
         }
       }
-      console.log("FINISH");
       setClipIndex(newClipIndex);
     }
   }, [data, clipIndex, hasNextPage]);

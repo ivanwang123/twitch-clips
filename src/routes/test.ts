@@ -6,7 +6,6 @@ import pool from "../pool";
 const router = express.Router();
 
 router.get("/db-streams", (req, res) => {
-  console.log("REQ", req.query);
   streams;
   const { game, language, cursor } = req.query;
 
@@ -37,8 +36,6 @@ router.get("/db-streams", (req, res) => {
 
     // Take 10 most recent
     query.orderby("created_at DESC").limit(10, 0);
-
-    console.log("QUERY", query.text, query.values);
 
     client.query(query.text, query.values, (err, data) => {
       release();
