@@ -188,46 +188,49 @@ function ClipPage() {
         </section>
 
         {/* CLIP INFO SECTION */}
-        <section
-          className="w-full h-2/4 bg-gray-900 overflow-y-auto z-10 transition-top duration-300
-                    landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
+        <div className="w-full h-2/4 lg:w-100 lg:h-full lg:rounded-r">
+          <section
+            className="w-full h-2/4 bg-gray-900 overflow-y-auto z-10 transition-top duration-300
+                    landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
                     lg:w-100 lg:h-full lg:rounded-r"
-          ref={streamInfoRef}
-        >
-          {clipStatus === "clip" ? (
-            <ClipInfo
-              curClip={curClip}
-              nextClip={nextClip}
-              prevClip={prevClip}
-              clipIndex={clipIndex}
-              toggleLandscapePage={toggleLandscapePage}
-              streamInfoRef={streamInfoRef}
-            />
-          ) : (
-            <>
-              {clipStatus === "end" && (
-                <div className="w-full h-full bg-gray-900 p-3 lg:px-5">
-                  <div className="flex w-full text-lg landscape:hidden">
-                    <button
-                      type="button"
-                      className="icon-btn flex items-center group pr-2"
-                      onClick={prevClip}
-                    >
-                      <img
-                        className="w-6 h-6"
-                        src="res/chevron-left.svg"
-                        alt="prev clip"
-                      />
-                      <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
-                        Back <span className="hidden lg:inline-block">(J)</span>
-                      </span>
-                    </button>
+            ref={streamInfoRef}
+          >
+            {clipStatus === "clip" ? (
+              <ClipInfo
+                curClip={curClip}
+                nextClip={nextClip}
+                prevClip={prevClip}
+                clipIndex={clipIndex}
+                toggleLandscapePage={toggleLandscapePage}
+                streamInfoRef={streamInfoRef}
+              />
+            ) : (
+              <>
+                {clipStatus === "end" && (
+                  <div className="w-full h-full bg-gray-900 p-3 lg:px-5">
+                    <div className="flex w-full text-lg landscape:hidden">
+                      <button
+                        type="button"
+                        className="icon-btn flex items-center group pr-2"
+                        onClick={prevClip}
+                      >
+                        <img
+                          className="w-6 h-6"
+                          src="res/chevron-left.svg"
+                          alt="prev clip"
+                        />
+                        <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
+                          Back{" "}
+                          <span className="hidden lg:inline-block">(J)</span>
+                        </span>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              )}
-            </>
-          )}
-        </section>
+                )}
+              </>
+            )}
+          </section>
+        </div>
       </main>
     </div>
   );
