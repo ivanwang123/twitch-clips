@@ -35,7 +35,7 @@ export const getClips = async (
     )
     .then((res) => {
       // console.log("RATE LIMIT", res.headers["ratelimit-remaining"]);
-      process.stdout.write(res.headers["ratelimit-remaining"] + " ");
+      // process.stdout.write(res.headers["ratelimit-remaining"] + " ");
       return {
         clips: res.data,
         ratelimit: res.headers["ratelimit-remaining"],

@@ -7,14 +7,14 @@ TODO
 -Change title
 -Error handling
 -Style refresh buton
--Add loading button/screen
+-Add initial loading button/screen
 -Remove access token
 
-    "dev": "ts-node-dev --respawn src/index.ts",
-    "start": "node dist/index.js",
-    "build": "tsc",
-    "postinstall": "npm run build",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+"dev": "ts-node-dev --respawn src/index.ts",
+"start": "node dist/index.js",
+"build": "tsc",
+"postinstall": "npm run build",
+"heroku-postbuild": "cd client && npm install && npm run build"
 
 ISSUES
 -Unable to detect when clip ends

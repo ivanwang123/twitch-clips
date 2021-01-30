@@ -4,12 +4,11 @@ import clip from "./routes/clip";
 import user from "./routes/user";
 import test from "./routes/test";
 // import path from "path";
-// import { fetchData } from "./dataFetcher";
+import { fetchData } from "./dataFetcher";
 
 const app = express();
 
-// fetchData();
-// getValidated();
+fetchData();
 
 // if (process.env.NODE_ENV === "production")
 //   app.use(express.static(path.join(__dirname, "../client/build")));
