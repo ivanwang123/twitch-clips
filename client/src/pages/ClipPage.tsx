@@ -201,7 +201,7 @@ function ClipPage() {
 
         {/* CLIP INFO SECTION */}
         <section
-          className="w-full h-2/4 bg-gray-900 overflow-y-auto z-10 transition-top duration-300 mt-12
+          className="w-full h-2/4 bg-gray-900 overflow-y-auto z-10 transition-top duration-300
                     landscape:absolute landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
                     lg:w-100 lg:h-full lg:rounded-r"
           ref={streamInfoRef}
