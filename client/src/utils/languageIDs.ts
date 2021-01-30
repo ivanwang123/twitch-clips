@@ -1,4 +1,4 @@
-export default {
+const languageIDs = {
   Any: "any",
   English: "en",
   Español: "es",
@@ -33,3 +33,5 @@ export default {
   हिन्दी: "hi",
   "Bahasa Melayu": "ms",
 };
+
+export default languageIDs;

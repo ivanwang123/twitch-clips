@@ -138,7 +138,7 @@ function ClipPage() {
       }
       setClipIndex(newClipIndex);
     }
-  }, [data, clipIndex, hasNextPage]);
+  }, [data, clipIndex, hasNextPage, fetchNextPage]);
 
   const nextClip = () => setClipIndex((prevIndex) => prevIndex + 1);
   const prevClip = () => setClipIndex((prevIndex) => prevIndex - 1);

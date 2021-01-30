@@ -1,4 +1,4 @@
-export default {
+const gameIDs = {
   "All Games": "0",
   "ARK: Survival Evolved": "489635",
   ASMR: "509659",
@@ -101,3 +101,5 @@ export default {
   "World of Warcraft": "18122",
   "World of Warships": "32502",
 };
+
+export default gameIDs;

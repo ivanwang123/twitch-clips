@@ -2,8 +2,6 @@ Created 1/16/21
 
 TODO
 -Fix mobile support
--Create logo
--Finalize title
 -Remove access token
 -Error handling
 

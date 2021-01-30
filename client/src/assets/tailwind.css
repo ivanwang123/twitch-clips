@@ -19,6 +19,10 @@ body,
 
 /* 131A2B, 161E32 */
 
+.title {
+  font-family: "Fredoka One", cursive;
+}
+
 .icon-btn {
   @apply rounded focus:outline-none hover:bg-gray-800;
 }
