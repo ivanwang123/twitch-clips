@@ -31,11 +31,25 @@ function ClipInfo(props: PropTypes) {
             className="icon-btn flex items-center group pr-2"
             onClick={prevClip}
           >
-            <img
+            {/* <img
               className="w-6 h-6"
               src="res/chevron-left.svg"
               alt="prev clip"
-            />
+            /> */}
+            <svg
+              className="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#d1d5db"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
             <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
               Back <span className="hidden lg:inline-block">(J)</span>
             </span>
@@ -49,11 +63,25 @@ function ClipInfo(props: PropTypes) {
           <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
             Next Clip <span className="hidden lg:inline-block">(L)</span>
           </span>
-          <img
+          {/* <img
             className="w-6 h-6"
             src="res/chevron-right.svg"
             alt="next clip"
-          />
+          /> */}
+          <svg
+            className="w-6 h-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#d1d5db"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
         </button>
       </div>
       <div className="flex lg:mt-1">
