@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import clip from "./routes/clip";
-import { fetchData } from "./dataFetcher";
+import fetchData from "./dataFetcher";
 
 const app = express();
 
