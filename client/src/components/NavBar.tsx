@@ -29,7 +29,6 @@ function NavBar(props: PropTypes) {
         <img className="w-6 h-6" src="res/close.svg" alt="close" />
       </button>
       <section className="w-full flex items-center">
-        {/* <div className="flex items-center"> */}
         <button
           type="button"
           className="icon-btn group flex items-center p-1"
@@ -46,14 +45,7 @@ function NavBar(props: PropTypes) {
           <span className="hidden title text-gray-500 text-xl ml-3 lg:block">
             Zero Andy
           </span>
-          {/* <span
-              className="hidden text-gray-500 text-sm font-semibold ml-1 transition duration-300 group-hover:text-gray-300
-                        landscape:block lg:ml-2 lg:block"
-            >
-              Refresh
-            </span> */}
         </button>
-        {/* </div> */}
 
         {/* GAME SELECTION */}
         <span className="flex border-r border-gray-500 ml-auto">

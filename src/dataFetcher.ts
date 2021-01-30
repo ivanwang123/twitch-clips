@@ -4,7 +4,7 @@ import pool from "./pool";
 const START_CURSOR =
   "eyJiIjp7IkN1cnNvciI6ImV5SnpJam80TGpjMk16WTJNemMzTVRjME1EQTRNeXdpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In0sImEiOnsiQ3Vyc29yIjoiZXlKeklqbzNMamN6TnpNd09EVXdNREV3TXpZd09Dd2laQ0k2Wm1Gc2MyVXNJblFpT25SeWRXVjkifX0";
 const MAX_OFFSET = 2001;
-const MAX_CLIPS = 150;
+const MAX_CLIPS = 1000;
 
 let cursor = START_CURSOR;
 let offset = 0;
