@@ -23,40 +23,40 @@ function ClipInfo(props: PropTypes) {
   } = props;
 
   return (
-    <div className="flex flex-col w-full h-full bg-gray-900 p-3 lg:px-5">
-      <div className="flex flex-col lg:mt-1">
-        <div className="w-full flex text-lg mb-3 bg-red-100">
-          {clipIndex !== 0 && (
-            <button
-              type="button"
-              className="icon-btn flex items-center group pr-2"
-              onClick={prevClip}
-            >
-              <img
-                className="w-6 h-6"
-                src="res/chevron-left.svg"
-                alt="prev clip"
-              />
-              <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
-                Back <span className="hidden lg:inline-block">(J)</span>
-              </span>
-            </button>
-          )}
+    <div className="flex flex-col w-full bg-gray-900 p-3 lg:px-5">
+      <div className="w-full flex text-lg mb-3 bg-red-100">
+        {clipIndex !== 0 && (
           <button
             type="button"
-            className="icon-btn flex items-center group ml-auto pl-2"
-            onClick={nextClip}
+            className="icon-btn flex items-center group pr-2"
+            onClick={prevClip}
           >
-            <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
-              Next Clip <span className="hidden lg:inline-block">(L)</span>
-            </span>
             <img
               className="w-6 h-6"
-              src="res/chevron-right.svg"
-              alt="next clip"
+              src="res/chevron-left.svg"
+              alt="prev clip"
             />
+            <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
+              Back <span className="hidden lg:inline-block">(J)</span>
+            </span>
           </button>
-        </div>
+        )}
+        <button
+          type="button"
+          className="icon-btn flex items-center group ml-auto pl-2"
+          onClick={nextClip}
+        >
+          <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
+            Next Clip <span className="hidden lg:inline-block">(L)</span>
+          </span>
+          <img
+            className="w-6 h-6"
+            src="res/chevron-right.svg"
+            alt="next clip"
+          />
+        </button>
+      </div>
+      <div className="flex lg:mt-1">
         <a
           className="flex items-center w-min"
           href={`https://www.twitch.tv/${curClip?.login}`}
