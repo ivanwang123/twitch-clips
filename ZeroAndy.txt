@@ -1,7 +1,6 @@
 Created 1/16/21
 
 TODO
--Add google analytics
 -Remove access token
 -Error handling
 
