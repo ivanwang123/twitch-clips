@@ -1,7 +1,7 @@
 import { RefObject } from "react";
 import { ClipType } from "src/types/clipType";
-import { formatNumber } from "../utils/numberFormatter";
-import { formatTimestamp } from "../utils/timeFormatter";
+// import { formatNumber } from "../utils/numberFormatter";
+// import { formatTimestamp } from "../utils/timeFormatter";
 
 interface PropTypes {
   curClip: ClipType | null;
@@ -14,12 +14,12 @@ interface PropTypes {
 
 function ClipInfo(props: PropTypes) {
   const {
-    curClip,
+    // curClip,
     nextClip,
     prevClip,
     clipIndex,
-    toggleLandscapePage,
-    streamInfoRef,
+    // toggleLandscapePage,
+    // streamInfoRef,
   } = props;
 
   return (
@@ -56,7 +56,7 @@ function ClipInfo(props: PropTypes) {
           />
         </button>
       </div>
-      <div className="flex mt-12 lg:mt-1">
+      {/* <div className="flex mt-12 lg:mt-1">
         <a
           className="flex items-center w-min"
           href={`https://www.twitch.tv/${curClip?.login}`}
@@ -128,7 +128,7 @@ function ClipInfo(props: PropTypes) {
             </button>
           )}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
