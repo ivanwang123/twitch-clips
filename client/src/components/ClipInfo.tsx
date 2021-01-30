@@ -24,7 +24,7 @@ function ClipInfo(props: PropTypes) {
 
   return (
     <div className="flex flex-col w-full min-h-full bg-gray-900 p-3 lg:px-5">
-      <div className="w-full flex text-lg mb-3">
+      <div className="w-full flex text-lg mb-3 landscape:hidden">
         {clipIndex !== 0 && (
           <button
             type="button"
