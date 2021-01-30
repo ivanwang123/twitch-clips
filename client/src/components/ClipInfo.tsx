@@ -1,7 +1,7 @@
 import { RefObject } from "react";
 import { ClipType } from "src/types/clipType";
-// import { formatNumber } from "../utils/numberFormatter";
-// import { formatTimestamp } from "../utils/timeFormatter";
+import { formatNumber } from "../utils/numberFormatter";
+import { formatTimestamp } from "../utils/timeFormatter";
 
 interface PropTypes {
   curClip: ClipType | null;
@@ -24,39 +24,39 @@ function ClipInfo(props: PropTypes) {
 
   return (
     <div className="flex flex-col w-full h-full bg-gray-900 p-3 lg:px-5">
-      <div className="w-full flex text-lg mb-3 bg-red-100">
-        {clipIndex !== 0 && (
+      <div className="flex flex-col lg:mt-1">
+        <div className="w-full flex text-lg mb-3 bg-red-100">
+          {clipIndex !== 0 && (
+            <button
+              type="button"
+              className="icon-btn flex items-center group pr-2"
+              onClick={prevClip}
+            >
+              <img
+                className="w-6 h-6"
+                src="res/chevron-left.svg"
+                alt="prev clip"
+              />
+              <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
+                Back <span className="hidden lg:inline-block">(J)</span>
+              </span>
+            </button>
+          )}
           <button
             type="button"
-            className="icon-btn flex items-center group pr-2"
-            onClick={prevClip}
+            className="icon-btn flex items-center group ml-auto pl-2"
+            onClick={nextClip}
           >
+            <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
+              Next Clip <span className="hidden lg:inline-block">(L)</span>
+            </span>
             <img
               className="w-6 h-6"
-              src="res/chevron-left.svg"
-              alt="prev clip"
+              src="res/chevron-right.svg"
+              alt="next clip"
             />
-            <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
-              Back <span className="hidden lg:inline-block">(J)</span>
-            </span>
           </button>
-        )}
-        <button
-          type="button"
-          className="icon-btn flex items-center group ml-auto pl-2"
-          onClick={nextClip}
-        >
-          <span className="text-gray-500 text-sm font-semibold transition duration-300 group-hover:text-gray-300">
-            Next Clip <span className="hidden lg:inline-block">(L)</span>
-          </span>
-          <img
-            className="w-6 h-6"
-            src="res/chevron-right.svg"
-            alt="next clip"
-          />
-        </button>
-      </div>
-      <div className="flex mt-12 lg:mt-1">
+        </div>
         <a
           className="flex items-center w-min"
           href={`https://www.twitch.tv/${curClip?.login}`}
@@ -80,7 +80,7 @@ function ClipInfo(props: PropTypes) {
           <img className="w-6 h-6" src="res/close.svg" alt="close" />
         </button>
       </div>
-      {/* <span className="text-2xl text-gray-300 mt-3 break-words">
+      <span className="text-2xl text-gray-300 mt-3 break-words">
         {curClip?.clip_title}
       </span>
       <span className="text-gray-500 text-sm font-semibold mt-1">
@@ -128,7 +128,7 @@ function ClipInfo(props: PropTypes) {
             </button>
           )}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
