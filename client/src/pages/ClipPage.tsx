@@ -14,7 +14,7 @@ async function fetchClips(queryArgs: any) {
   };
 
   const data = await fetch(
-    "https://twitch-streamer-clips.herokuapp.com/test/db-streams?" +
+    "https://twitch-streamer-clips.herokuapp.com/clip/get-clips?" +
       new URLSearchParams(params),
     {
       headers: {
@@ -33,7 +33,6 @@ function ClipPage() {
   const {
     data,
     hasNextPage,
-    // isFetchingNextPage,
     isFetching,
     fetchNextPage,
     refetch,
@@ -180,6 +179,7 @@ function ClipPage() {
             />
           )}
         </section>
+
         {/* CLIP INFO SECTION */}
         <section
           className="w-full h-2/4 bg-gray-900 overflow-y-auto z-10 transition-top duration-300
