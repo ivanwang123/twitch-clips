@@ -14,12 +14,12 @@ interface PropTypes {
 
 function ClipInfo(props: PropTypes) {
   const {
-    // curClip,
+    curClip,
     nextClip,
     prevClip,
     clipIndex,
-    // toggleLandscapePage,
-    // streamInfoRef,
+    toggleLandscapePage,
+    streamInfoRef,
   } = props;
 
   return (
@@ -56,7 +56,7 @@ function ClipInfo(props: PropTypes) {
           />
         </button>
       </div>
-      {/* <div className="flex mt-12 lg:mt-1">
+      <div className="flex mt-12 lg:mt-1">
         <a
           className="flex items-center w-min"
           href={`https://www.twitch.tv/${curClip?.login}`}
@@ -80,7 +80,7 @@ function ClipInfo(props: PropTypes) {
           <img className="w-6 h-6" src="res/close.svg" alt="close" />
         </button>
       </div>
-      <span className="text-2xl text-gray-300 mt-3 break-words">
+      {/* <span className="text-2xl text-gray-300 mt-3 break-words">
         {curClip?.clip_title}
       </span>
       <span className="text-gray-500 text-sm font-semibold mt-1">
