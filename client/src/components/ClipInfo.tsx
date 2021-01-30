@@ -117,7 +117,7 @@ function ClipInfo(props: PropTypes) {
         {curClip?.clip_view_count === 1 ? "" : "s"}
       </span>
       <div className="my-auto">
-        <div className="flex flex-col shadow-3xl bg-gray-900 py-4 my-3 landscape:px-2 lg:px-2">
+        <div className="flex flex-col shadow-3xl bg-gray-900 py-4 my-4 landscape:px-2 lg:px-2">
           {curClip?.stream_type === "live" && (
             <div className="text-gray-500 text-sm font-semibold">
               <span className="text-gray-100 bg-red-600 px-2 mr-2 rounded">
