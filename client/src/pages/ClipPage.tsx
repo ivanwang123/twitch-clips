@@ -13,17 +13,21 @@ async function fetchClips(queryArgs: any) {
     cursor: queryArgs.pageParam || "",
   };
 
-  const data = await fetch(
-    "https://twitch-streamer-clips.herokuapp.com/clip/get-clips?" +
-      new URLSearchParams(params),
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  try {
+    const data = await fetch(
+      "https://twitch-streamer-clips.herokuapp.com/clip/get-clips?" +
+        new URLSearchParams(params),
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-  return await data.json();
+    return await data.json();
+  } catch (e) {
+    throw new Error("Unable to retrieve clips");
+  }
 }
 
 function ClipPage() {
@@ -50,6 +54,7 @@ function ClipPage() {
       },
     }
   );
+
   const [clipIndex, setClipIndex] = useState<number>(0);
   const [curClip, setCurClip] = useState<ClipType | null>(null);
   const [clipStatus, setClipStatus] = useState<"clip" | "none" | "end">("none");
