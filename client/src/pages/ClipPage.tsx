@@ -151,7 +151,7 @@ function ClipPage() {
       {/* NAVBAR */}
       <nav
         className="col-span-1 row-span-1 bg-gray-900 w-full h-full flex text-gray-500 px-3 z-10 transition-top duration-300
-                  landscape:absolute landscape:top-full landscape:left-0 landscape:right-0
+                  landscape:fixed landscape:top-full landscape:left-0 landscape:right-0
                   landscape:w-auto landscape:h-full landscape:block landscape:p-6 landscape:mr-20
                   lg:px-24 lg:max-w-screen-xl lg:bg-light"
         ref={navRef}
@@ -189,7 +189,7 @@ function ClipPage() {
 
         {/* CLIP INFO SECTION */}
         <section
-          className="static w-full h-2/4 bg-gray-900 overflow-y-auto z-10 transition-top duration-300
+          className="w-full h-2/4 bg-gray-900 overflow-y-auto z-10 transition-top duration-300
                     landscape:fixed landscape:top-full landscape:left-0 landscape:right-0 landscape:w-auto landscape:h-full landscape:p-3 landscape:mr-20
                     lg:w-100 lg:h-full lg:rounded-r"
           ref={streamInfoRef}
