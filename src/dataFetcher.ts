@@ -4,6 +4,7 @@ import pool from "./pool";
 const START_CURSOR =
   "eyJiIjp7IkN1cnNvciI6ImV5SnpJam80TGpjMk16WTJNemMzTVRjME1EQTRNeXdpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In0sImEiOnsiQ3Vyc29yIjoiZXlKeklqbzNMamN6TnpNd09EVXdNREV3TXpZd09Dd2laQ0k2Wm1Gc2MyVXNJblFpT25SeWRXVjkifX0";
 const MAX_OFFSET = 2001;
+const MAX_CLIPS = 150;
 
 let cursor = START_CURSOR;
 let offset = 0;
@@ -89,7 +90,7 @@ export const fetchData = async () => {
                           WHERE id NOT IN (
                             SELECT id FROM clips
                             ORDER BY created_at DESC
-                            LIMIT 120
+                            LIMIT ${MAX_CLIPS}
                           );`;
       pool
         .query(cleanDbText)

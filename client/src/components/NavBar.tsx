@@ -47,7 +47,6 @@ function NavBar(props: PropTypes) {
               className="hidden text-gray-500 text-sm font-semibold ml-1 transition duration-300 group-hover:text-gray-300
                         landscape:block lg:ml-2 lg:block"
             >
-              {/* <strong>142 clips</strong> from past 30 min */}
               Refresh
             </span>
           </button>
