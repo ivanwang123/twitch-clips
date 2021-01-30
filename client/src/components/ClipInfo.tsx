@@ -23,8 +23,8 @@ function ClipInfo(props: PropTypes) {
   } = props;
 
   return (
-    <div className="flex flex-col w-full h-full bg-gray-900 p-3 overflow-y-auto lg:px-5">
-      <div className="w-full flex text-lg mb-3 bg-red-100 h-12">
+    <div className="flex flex-col w-full h-full bg-gray-900 p-3 lg:px-5">
+      <div className="block w-full flex text-lg mb-3 bg-red-100 h-12">
         {clipIndex !== 0 && (
           <button
             type="button"
@@ -56,7 +56,7 @@ function ClipInfo(props: PropTypes) {
           />
         </button>
       </div>
-      <div className="flex lg:mt-1">
+      <div className="flex mt-12 lg:mt-1">
         <a
           className="flex items-center w-min"
           href={`https://www.twitch.tv/${curClip?.login}`}
