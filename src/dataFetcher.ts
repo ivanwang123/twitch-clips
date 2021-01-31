@@ -10,7 +10,7 @@ let cursor = START_CURSOR;
 let offset = 0;
 let pause = false;
 
-const CLIP_TIMEFRAME = 1200000; // 20 minutes
+const CLIP_TIMEFRAME = 1800000; // 30 minutes
 const BATCH_SIZE = 3;
 
 const fetchData = async () => {
