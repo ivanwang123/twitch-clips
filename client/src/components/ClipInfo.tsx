@@ -86,7 +86,7 @@ function ClipInfo(props: PropTypes) {
             src={curClip?.profile_image_url}
             alt="profile"
           />
-          <h1 className="text-lg text-gray-300 font-semibold ml-2 hover:underline">
+          <h1 className="text-lg text-gray-300 font-semibold ml-2 break-words hover:underline">
             {curClip?.user_name}
           </h1>
         </a>
@@ -120,7 +120,7 @@ function ClipInfo(props: PropTypes) {
           )}
           <span className="text-gray-300 font-semibold my-1">
             <a
-              className="hover:underline"
+              className="break-words hover:underline"
               href={`https://www.twitch.tv/${curClip?.login}`}
               target="_blank"
               rel="noopener noreferrer"
