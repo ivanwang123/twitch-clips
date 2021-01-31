@@ -16,6 +16,7 @@
     "postcss-cli": "^8.3.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-hotkeys-hook": "^3.0.3",
     "react-query": "^3.5.14",
     "react-scripts": "4.0.1",
@@ -48,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-helmet": "^6.1.0"
   }
 }

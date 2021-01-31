@@ -43,7 +43,7 @@ function NavBar(props: PropTypes) {
             alt="refresh"
           />
           <span className="hidden title text-gray-500 text-xl ml-3 lg:block">
-            Zero Andy
+            ZeroAndy
           </span>
         </button>
 

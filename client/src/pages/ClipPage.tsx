@@ -6,6 +6,7 @@ import ClipInfo from "../components/ClipInfo";
 import ClipVideo from "../components/ClipVideo";
 import NavBar from "../components/NavBar";
 import ClipStatus from "../components/ClipStatus";
+import { Helmet } from "react-helmet";
 
 async function fetchClips(queryArgs: any) {
   const params = {
@@ -145,6 +146,9 @@ function ClipPage() {
 
   return (
     <div className="fixed w-full h-full grid grid-rows-vert justify-items-center items-center landscape:grid-rows-1">
+      <Helmet>
+        <title>ZeroAndy {curClip ? `- ${curClip.clip_title}` : ""}</title>
+      </Helmet>
       {/* NAVBAR */}
       <nav
         className="row-span-1 bg-gray-900 w-full h-full flex text-gray-500 px-3 z-10 transition-top duration-300
