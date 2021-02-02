@@ -80,6 +80,8 @@ const fetchData = async () => {
         }
       } catch (e) {
         console.log("Error", e);
+        cursor = START_CURSOR;
+        offset = 0;
       }
     }
 
