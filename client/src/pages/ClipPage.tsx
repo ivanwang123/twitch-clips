@@ -147,7 +147,7 @@ function ClipPage() {
   return (
     <div className="fixed w-full h-full grid grid-rows-vert justify-items-center items-center landscape:grid-rows-1">
       <Helmet>
-        <title>ZeroAndy {curClip ? `- ${curClip.clip_title}` : ""}</title>
+        <title>{curClip ? `${curClip.clip_title} | ` : ""}ZeroAndy</title>
       </Helmet>
       {/* NAVBAR */}
       <nav
