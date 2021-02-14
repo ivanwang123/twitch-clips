@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "react-build": "react-scripts build",
-    "build": "CI='' npm run react-build",
+    "build": "CI='' npm run build-css && npm run react-build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-css": "tailwindcss build src/assets/tailwind.css -o src/assets/index.css"
