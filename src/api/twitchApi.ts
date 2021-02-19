@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
-let accessToken = "5narj1ckboratwa6f10q1kii85tm25";
+let accessToken = "";
 const header = {
   "Content-Type": "application/json",
   Authorization: `Bearer ${accessToken}`,
